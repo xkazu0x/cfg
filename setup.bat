@@ -7,6 +7,7 @@ copy .\.emacs %APPDATA%\.emacs
 
 if not exist %APPDATA%\.emacs.d\themes mkdir %APPDATA%\.emacs.d\themes
 copy .\excalibur-theme.el %APPDATA%\.emacs.d\themes\excalibur-theme.el
+copy .\excalibur-metal-theme.el %APPDATA%\.emacs.d\themes\excalibur-metal-theme.el
 
 :: --- Wezterm Setup -------------------------------------------
 copy .\.wezterm.lua %USERPROFILE%\.wezterm.lua
