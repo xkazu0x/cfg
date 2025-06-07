@@ -157,12 +157,11 @@
   (defun win32-maximize-frame()
     (interactive)
     (when xkazu0x-win32 (w32-send-sys-command 61488)))
+  (define-key global-map "\ep" 'win32-maximize-frame)
   (defun win32-minimize-frame()
     (interactive)
-    (when xkazu0x-win32 (w32-send-sys-command 61728))))
-
-(define-key global-map "\ep" 'win32-maximize-frame)
-(define-key global-map "\eP" 'win32-minimize-frame)
+    (when xkazu0x-win32 (w32-send-sys-command 61728)))
+  (define-key global-map "\eP" 'win32-minimize-frame))
 
 (define-key global-map "\ew" 'other-window)
 (define-key global-map "\eq" 'delete-window)
@@ -184,6 +183,10 @@
 (global-set-key (kbd "C-,") 'duplicate-line)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-unset-key [mouse-2])
+
+;;(define-key global-map (kbd "C-q") 'kill-ring-save)
+(define-key global-map (kbd "C-q") 'copy-region-as-kill)
+(define-key global-map (kbd "C-p") 'yank)
 
 (define-key global-map [home] 'beginning-of-line)
 (define-key global-map [end] 'end-of-line)
@@ -211,21 +214,17 @@
 
 (define-key global-map "\el" 'comment-region)
 (define-key global-map "\eL" 'uncomment-region)
-
-;;(define-key global-map (kbd "C-q") 'kill-ring-save)
-(define-key global-map (kbd "C-q") 'copy-region-as-kill)
-(define-key global-map (kbd "C-p") 'yank)
  
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
 ;; --- Basics --------------------------------------------------
+(when xkazu0x-linux (add-hook 'window-setup-hook 'toggle-frame-maximized t))
+(when xkazu0x-win32 (add-hook 'window-setup-hook 'win32-maximize-frame t))
+
 (setq undo-limit (* 16 1024 1024))
 (setq undo-strong-limit (* 24 1024 1024))
 (setq undo-outer-limit (* 64 1024 1024))
-
-(when xkazu0x-linux (add-hook 'window-setup-hook 'toggle-frame-maximized t))
-(when xkazu0x-win32 (add-hook 'window-setup-hook 'win32-maximize-frame t))
 
 ;;(ido-mode 1)
 ;;(ido-everywhere 1)
