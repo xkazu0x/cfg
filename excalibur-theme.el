@@ -5,10 +5,13 @@
       (fg       "#bab5a1")
       (bg       "#1c1b17")
       (line     "#2a2822")
+      (cursor   "#d4d1c4")
       (keyword  "#d4d1c4")
-      (constant "#919782")
       (type     "#667a73")
+      (constant "#919782")
       (string   "#919782")
+      (number   "#919782")
+      (warning  "#919782")
       (gray     "#898776"))
   
   (custom-theme-set-variables
@@ -18,13 +21,13 @@
   (custom-theme-set-faces
    'excalibur
 
-   ;; --- Default Colors -------
+   ;; --- Default Colors ---------------------------------------
    `(default           ((t (:background ,bg :foreground ,fg))))
    `(border            ((t (:background ,fg :foreground ,bg))))
    `(region            ((t (:background ,fg :foreground ,bg))))
    `(fringe            ((t (:background ,bg :foreground ,gray))))
    `(highlight         ((t (:background ,fg :foreground ,bg))))
-   `(cursor            ((t (:background ,keyword))))
+   `(cursor            ((t (:background ,cursor))))
    `(vertical-border   ((t (:foreground ,line))))
    `(minibuffer-prompt ((t (:foreground ,type))))
 
@@ -45,9 +48,9 @@
    `(help-key-binding          ((t ,(list :background type :foreground bg))))
    `(read-multiple-choice-face ((t ,(list :background type :foreground bg))))
 
-   ;; --- Compilation ----------
-   `(compilation-column-number ((t (:foreground ,fg))))
-   `(compilation-line-number   ((t (:foreground ,fg))))
+   ;; --- Compilation ------------------------------------------
+   `(compilation-column-number ((t (:foreground ,number))))
+   `(compilation-line-number   ((t (:foreground ,number))))
    
    `(compilation-error   ((t (:foreground ,keyword))))
    `(compilation-warning ((t (:foreground ,gray))))
@@ -55,9 +58,9 @@
    
    `(compilation-mode-line-fail ((t (:foreground ,gray))))
    `(compilation-mode-line-exit ((t (:foreground ,gray))))
-   `(compilation-mode-line-run  ((t (:foreground ,type))))
+   `(compilation-mode-line-run  ((t (:foreground ,warning))))
 
-   ;; --- Mode Line ------------
+   ;; --- Mode Line --------------------------------------------
    `(mode-line           ((t ,(list :background fg     :foreground bg))))
    `(mode-line-highlight ((t ,(list :background type :foreground bg))))
    `(mode-line-inactive  ((t ,(list :background line   :foreground fg))))
@@ -65,15 +68,15 @@
    `(header-line ((t (:background ,black :foreground ,fg))))
    `(completions-annotations ((t (:foreground ,gray))))
 
-   ;; --- Line Number ----------
+   ;; --- Line Number ------------------------------------------
    `(line-number              ((t (:background ,bg :foreground ,gray))))
    `(line-number-current-line ((t (:background ,bg :foreground ,fg))))
 
-   ;; --- Highlight ------------
+   ;; --- Highlight --------------------------------------------
    `(hl-line        ((t (:background ,line))))
    `(lazy-highlight ((t (:background ,type :foreground ,bg))))
 
-   ;; --- Font Lock Faces ------
+   ;; --- Font Lock Faces --------------------------------------
    `(font-lock-bracket-face              ((t (:foreground ,fg))))
    `(font-lock-builtin-face              ((t (:foreground ,type))))
    `(font-lock-comment-delimiter-face    ((t (:foreground ,gray))))
@@ -91,7 +94,7 @@
    `(font-lock-misc-punctuation-face     ((t (:foreground ,fg))))
    `(font-lock-negation-char-face        ((t (:foreground ,fg))))
    ;;`(font-lock-note-face                 ((t (:foreground "#"))))
-   `(font-lock-number-face               ((t (:foreground ,fg))))
+   `(font-lock-number-face               ((t (:foreground ,number))))
    `(font-lock-operator-face             ((t (:foreground ,fg))))
    `(font-lock-preprocessor-face         ((t (:foreground ,gray))))
    `(font-lock-property-name-face        ((t (:foreground ,fg))))
@@ -104,40 +107,40 @@
    `(font-lock-type-face                 ((t (:foreground ,type :bold nil))))
    `(font-lock-variable-name-face        ((t (:foreground ,fg))))
    `(font-lock-variable-use-face         ((t (:foreground ,fg))))
-   `(font-lock-warning-face              ((t (:foreground ,type))))
+   `(font-lock-warning-face              ((t (:foreground ,warning))))
 
-   ;; --- Plugins --------------
-   ;; + COMPLETION -------------
+   ;; --- Plugins ----------------------------------------------
+   ;; + COMPLETION +
    `(completions-annotations ((t (:inherit 'shadow))))
    `(completions-highlight   ((t (:foreground ,bg :background ,fg))))
    `(ffap                    ((t (:foreground ,bg :background ,fg))))
    
-   ;; + ISEARCH ----------------
+   ;; + ISEARCH +
    `(isearch      ((t (:foreground ,bg :background ,fg :weight normal))))
    `(isearch-fail ((t (:foreground ,bg :background ,type :bold t))))
 
-   ;; + PULSE ------------------
+   ;; + PULSE +
    `(pulse-highlight-start-face ((t (:background ,white))))
    
-   ;; + DIRED ------------------
-   `(warning ((t (:background nil :foreground ,keyword))))
+   ;; + DIRED +
+   `(warning ((t (:background nil :foreground ,warning))))
    
-   ;; + SHOW PAREN -------------
+   ;; + SHOW PAREN +
    `(show-paren-match            ((t (:background ,fg :foreground ,bg))))
    `(show-paren-match-expression ((t (:background ,fg :foreground ,bg))))
-   `(show-paren-mismatch         ((t (:background ,keyword :foreground ,bg))))
+   `(show-paren-mismatch         ((t (:background ,warning :foreground ,bg))))
    
-   ;; + TREE SITTER ------------
+   ;; + TREE SITTER +
    `(tree-sitter-hl-face:embedded      ((t (:foreground ,type))))
    `(tree-sitter-hl-face:function.call ((t (:foreground ,gray :italic nil))))
    `(tree-sitter-hl-face:type          ((t (:foreground ,type))))
    `(tree-sitter-hl-face:variable      ((t (:foreground ,fg))))
-   `(tree-sitter-hl-face:number        ((t (:foreground ,string))))
+   `(tree-sitter-hl-face:number        ((t (:foreground ,number))))
    `(tree-sitter-hl-face:operator      ((t (:foreground ,fg))))
    `(tree-sitter-hl-face:property      ((t (:foreground ,fg :italic nil))))
    `(tree-sitter-hl-face:punctuation   ((t (:foreground ,fg))))
    
-   ;; + IVY --------------------
+   ;; + IVY +
    `(ivy-completions-annotations ((t (:foreground ,black))))
    `(ivy-minibuffer-match-face-1 ((t (:background nil :foreground ,nil))))
    `(ivy-minibuffer-match-face-2 ((t (:background ,type :foreground ,black))))
@@ -146,7 +149,7 @@
    `(ivy-current-match ((t (:background ,fg :foreground ,black))))
    `(ivy-prompt-match  ((t (:background ,fg :foreground ,black))))
    
-   ;; + SWIPER -----------------
+   ;; + SWIPER +
    `(swiper-background-match-face-1 ((t (:background ,nil :foreground ,nil))))
    `(swiper-background-match-face-2 ((t (:background ,type :foreground ,black))))
    `(swiper-background-match-face-3 ((t (:background ,type :foreground ,black))))

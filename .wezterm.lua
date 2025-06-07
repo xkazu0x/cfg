@@ -9,12 +9,12 @@ local config = wezterm.config_builder()
 -- config.default_prog = { "powershell.exe", "-NoLogo" }
 -- config.default_prog = { "cmd.exe", "-NoLogo" }
 
-config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
 
 config.color_scheme = "Black Metal (Marduk) (base16)"
 config.font = wezterm.font("Iosevka Fixed")
-config.font_size = 18.0
+config.font_size = 14.0
 config.front_end = "WebGpu"
 config.term = "xterm-256color"
 config.max_fps = 75
@@ -22,15 +22,15 @@ config.max_fps = 75
 config.window_decorations = "NONE | RESIZE"
 
 config.window_padding = {
-   left = 0,
-   right = 0,
-   top = 0,
-   bottom = 0,
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
 }
 
 config.window_frame = {
-   font = wezterm.font({ family = "Iosevka", weight = "Regular" }),
-   active_titlebar_bg = "#0c0b0f",
+    font = wezterm.font({ family = "Iosevka", weight = "Regular" }),
+    active_titlebar_bg = "#0c0b0f",
 }
 
 config.keys = {   

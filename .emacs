@@ -5,6 +5,7 @@
 ;; --- Decoration --------------
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'excalibur t)
+;;(load-theme 'excalibur-metal t)
 
 (set-frame-font "Iosevka 14" nil t)
 
@@ -31,18 +32,20 @@
 (setq xkazu0x-win32 (not xkazu0x-linux))
 
 (when xkazu0x-linux
-  (setq xkazu0x-makescript "build.sh")
-  (setq xkazu0x-runscript "run.sh"))
+  (setq xkazu0x-build "build.sh")
+  (setq xkazu0x-build-release "build.sh release")
+  (setq xkazu0x-run "run.sh"))
 
 (when xkazu0x-win32
-  (setq xkazu0x-makescript "build.bat")
-  (setq xkazu0x-runscript "run.bat"))
+  (setq xkazu0x-build "build.bat")
+  (setq xkazu0x-build-release "build.bat release")
+  (setq xkazu0x-run "run.bat"))
 
 ;; --- Build Project -----------
 (defun find-project-directory-recursive()
   "Recursively search for a makefile."
   (interactive)
-  (if (file-exists-p xkazu0x-makescript) t
+  (if (file-exists-p xkazu0x-build) t
     (cd "../")
     (find-project-directory-recursive)))
 
@@ -55,17 +58,24 @@
   (find-project-directory-recursive)
   (setq last-compilation-directory default-directory))
 
-(defun make-without-asking()
-  "Make the current build."
+(defun build-without-asking()
+  "Build."
   (interactive)
-  (if (find-project-directory) (compile xkazu0x-makescript)
+  (if (find-project-directory) (compile xkazu0x-build)
     (other-window 1)))
-(define-key global-map "\em" 'make-without-asking)
+(define-key global-map "\em" 'build-without-asking)
+
+(defun build-release-without-asking()
+  "Build release."
+  (interactive)
+  (if (find-project-directory) (compile xkazu0x-build-release)
+    (other-window 1)))
+(define-key global-map "\e," 'build-release-without-asking)
 
 (defun run-without-asking()
-  "Make the current build."
+  "Run the current build."
   (interactive)
-  (if (find-project-directory) (compile xkazu0x-runscript)
+  (if (find-project-directory) (compile xkazu0x-run)
     (other-window 1)))
 (define-key global-map "\ek" 'run-without-asking)
 
@@ -219,14 +229,14 @@
     `(init-el-install-package ',package-name)))
 
 ;; --- Lang Modes --------------
-(add-to-list 'load-path "~/.emacs.d/modes/")
-(init-el-with-eval-after-load c3-mode)
-(init-el-with-eval-after-load hlsl-mode)
-(init-el-with-eval-after-load odin-mode)
+;;(add-to-list 'load-path "~/.emacs.d/modes/")
+;;(init-el-with-eval-after-load c3-mode)
+;;(init-el-with-eval-after-load hlsl-mode)
+;;(init-el-with-eval-after-load odin-mode)
 
-(init-el-require-package glsl-mode)
-(init-el-require-package go-mode)
-(init-el-require-package lua-mode)
+;;(init-el-require-package glsl-mode)
+;;(init-el-require-package go-mode)
+;;(init-el-require-package lua-mode)
 
 (setq auto-mode-alist
       (append
