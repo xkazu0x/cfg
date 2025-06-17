@@ -19,8 +19,7 @@
 	 mode
 	 '(("\\<\\(TODO\\)" 1 'font-lock-fixme-face t)
            ("\\<\\(NOTE\\)" 1 'font-lock-note-face t)
-           ("\\<\\(IMPORTANT\\)" 1 'font-lock-important-face t)
-           )))
+           ("\\<\\(IMPORTANT\\)" 1 'font-lock-important-face t))))
       fixme-modes)
 
 (modify-face 'font-lock-fixme-face "Red" nil nil t nil t nil nil)
@@ -44,8 +43,8 @@
          ("\\.gen$"   . gen-mode)
          ("\\.ms$"    . fundamental-mode)
          ("\\.m$"     . objc-mode)
-         ("\\.mm$"    . objc-mode)
-         ) auto-mode-alist))
+         ("\\.mm$"    . objc-mode))
+       auto-mode-alist))
 
 (defconst xkazu0x-c-style
   '((c-electric-pound-behavior   . nil)
@@ -96,7 +95,6 @@
   (setq tab-width 4 indent-tabs-mode nil)
   (c-set-offset 'member-init-intro '++)
   (c-toggle-auto-hungry-state -1)
-  (define-key c++-mode-map "\C-m" 'newline-and-indent)
   (setq c-hanging-semi&comma-criteria '((lambda () 'stop)))
   (setq dabbrev-case-replace t)
   (setq dabbrev-case-fold-search t)
@@ -109,17 +107,19 @@
 (setq xkazu0x-linux (featurep 'x))
 (setq xkazu0x-win32 (not xkazu0x-linux))
 
+;; --- Build Project -------------------------------------------
 (when xkazu0x-linux
-  (setq xkazu0x-build "build.sh")
-  (setq xkazu0x-build-release "build.sh release")
-  (setq xkazu0x-run "run.sh"))
+  (setq xkazu0x-run           "run.sh")
+  (setq xkazu0x-build         "build.sh")
+  (setq xkazu0x-build-debug   "build.sh debug")
+  (setq xkazu0x-build-release "build.sh release"))
 
 (when xkazu0x-win32
-  (setq xkazu0x-build "build.bat")
-  (setq xkazu0x-build-release "build.bat release")
-  (setq xkazu0x-run "run.bat"))
+  (setq xkazu0x-run           "run.bat")
+  (setq xkazu0x-build         "build.bat")
+  (setq xkazu0x-build-debug   "build.bat debug")
+  (setq xkazu0x-build-release "build.bat release"))
 
-;; --- Build Project -------------------------------------------
 (defun find-project-directory-recursive()
   (interactive)
   (if (file-exists-p xkazu0x-build) t
@@ -134,40 +134,59 @@
   (find-project-directory-recursive)
   (setq last-compilation-directory default-directory))
 
+(defun run-project()
+  (interactive)
+  (if (find-project-directory) (compile xkazu0x-run)
+    (other-window 1)))
+
 (defun build-project()
   (interactive)
   (if (find-project-directory) (compile xkazu0x-build)
     (other-window 1)))
-(define-key global-map "\em" 'build-project)
+
+(defun build-project-debug()
+  (interactive)
+  (if (find-project-directory) (compile xkazu0x-build-debug)
+    (other-window 1)))
 
 (defun build-project-release()
   (interactive)
   (if (find-project-directory) (compile xkazu0x-build-release)
     (other-window 1)))
-(define-key global-map "\e," 'build-project-release)
-
-(defun run-project()
-  (interactive)
-  (if (find-project-directory) (compile xkazu0x-run)
-    (other-window 1)))
-(define-key global-map "\ek" 'run-project)
 
 ;; --- Key Binding ---------------------------------------------
-(when xkazu0x-win32
-  (defun win32-maximize-frame()
-    (interactive)
-    (when xkazu0x-win32 (w32-send-sys-command 61488)))
-  (define-key global-map "\ep" 'win32-maximize-frame)
-  (defun win32-minimize-frame()
-    (interactive)
-    (when xkazu0x-win32 (w32-send-sys-command 61728)))
-  (define-key global-map "\eP" 'win32-minimize-frame))
+(global-unset-key [mouse-2])
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-(define-key global-map "\ew" 'other-window)
-(define-key global-map "\eq" 'delete-window)
+(global-set-key (kbd "<f5>") 'run-project)
+(global-set-key (kbd "<f6>") 'build-project)
+(global-set-key (kbd "<f7>") 'build-project-debug)
+(global-set-key (kbd "<f8>") 'build-project-release)
 
-(define-key global-map "\eh" 'split-window-horizontally)
-(define-key global-map "\ev" 'split-window-vertically)
+(global-set-key (kbd "<f9>") 'first-error)
+(global-set-key (kbd "<f10>") 'previous-error)
+(global-set-key (kbd "<f11>") 'next-error)
+
+(global-set-key (kbd "M-b") 'eval-buffer)
+
+(global-set-key (kbd "M-h") 'split-window-horizontally)
+(global-set-key (kbd "M-v") 'split-window-vertically)
+
+(global-set-key (kbd "M-w") 'other-window)
+(global-set-key (kbd "M-q") 'delete-window)
+
+(global-set-key (kbd "M-l") 'comment-region)
+(global-set-key (kbd "M-L") 'uncomment-region)
+
+(global-set-key (kbd "M-u") 'undo)
+(global-set-key (kbd "M-6") 'upcase-word)
+(global-set-key (kbd "M-^") 'capitalize-word)
+
+(global-set-key (kbd "M-[") 'start-kbd-macro)
+(global-set-key (kbd "M-]") 'end-kbd-macro)
+(global-set-key (kbd "M-'") 'call-last-kbd-macro)
+
+(global-set-key (kbd "C-q") 'kill-ring-save)
 
 (defun duplicate-line()
   (interactive)
@@ -179,48 +198,23 @@
     (insert line)
     (move-beginning-of-line 1)
     (forward-char column)))
-
 (global-set-key (kbd "C-,") 'duplicate-line)
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-(global-unset-key [mouse-2])
 
-;;(define-key global-map (kbd "C-q") 'kill-ring-save)
-(define-key global-map (kbd "C-q") 'copy-region-as-kill)
-(define-key global-map (kbd "C-p") 'yank)
+;; (global-set-key (kbd "C-h") 'left-char)
+;; (global-set-key (kbd "C-j") 'next-line)
+;; (global-set-key (kbd "C-k") 'previous-line)
+;; (global-set-key (kbd "C-l") 'right-char)
 
-(define-key global-map [home] 'beginning-of-line)
-(define-key global-map [end] 'end-of-line)
-(define-key global-map [pgup] 'forward-page)
-(define-key global-map [pgdown] 'backward-page)
-(define-key global-map [C-next] 'scroll-other-window)
-(define-key global-map [C-prior] 'scroll-other-window-down)
+;; (global-set-key (kbd "C-S-h") 'backward-word)
+;; (global-set-key (kbd "C-S-j") 'forward-paragraph)
+;; (global-set-key (kbd "C-S-k") 'backward-paragraph)
+;; (global-set-key (kbd "C-S-l") 'forward-word)
 
-(define-key global-map "\eb" 'compile)
-
-(define-key global-map [f9] 'first-error)
-(define-key global-map [f10] 'previous-error)
-(define-key global-map [f11] 'next-error)
-
-(define-key global-map "\eN" 'previous-error)
-(define-key global-map "\en" 'next-error)
-
-(define-key global-map "\eu" 'undo)
-(define-key global-map "\e6" 'upcase-word)
-(define-key global-map "\e^" 'captilize-word)
-
-(define-key global-map "\e[" 'start-kbd-macro)
-(define-key global-map "\e]" 'end-kbd-macro)
-(define-key global-map "\e'" 'call-last-kbd-macro)
-
-(define-key global-map "\el" 'comment-region)
-(define-key global-map "\eL" 'uncomment-region)
- 
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
 ;; --- Basics --------------------------------------------------
-(when xkazu0x-linux (add-hook 'window-setup-hook 'toggle-frame-maximized t))
-(when xkazu0x-win32 (add-hook 'window-setup-hook 'win32-maximize-frame t))
+(add-hook 'window-setup-hook 'toggle-frame-maximized t)
 
 (setq undo-limit (* 16 1024 1024))
 (setq undo-strong-limit (* 24 1024 1024))
@@ -262,7 +256,6 @@
 
 (setq auto-save-default nil)
 
-;; use utf-8
 ;; (prefer-coding-system 'utf-8)
 ;; (setq coding-system-for-read 'utf-8)
 ;; (setq coding-system-for-write 'utf-8)
@@ -281,7 +274,7 @@
 (setq search-highlight t)
 (setq query-replace-highlight t)
 
-(setq-default truncate-lines t)
+(setq-default truncate-lines nil)
 
 (setq use-short-answers t)
 (setq confirm-kill-emacs 'yes-or-no-p)
@@ -293,8 +286,8 @@
 ;; --- Tune Garbage Collector --
 ;; the default settings are too conservative on modern machines making EMX
 ;; spend too much time collecting garbage in alloc-heavy code.
-(setq gc-cons-threshold (* 4 1024 1024))
-(setq gc-cons-percentage 0.3)
+;;(setq gc-cons-threshold (* 4 1024 1024))
+;;(setq gc-cons-percentage 0.3)
 
 ;; --- Package Manager -----------------------------------------
 (eval-and-compile
@@ -324,11 +317,9 @@
 
 ;; --- Packages ------------------------------------------------
 (use-package ivy
-  :diminish ivy-mode
-  :config
-  (ivy-mode 1))
+  :ensure t
+  :config (ivy-mode 1))
 
 (use-package swiper
   :ensure t
-  :config)
-(global-set-key (kbd "C-s") 'swiper)
+  :bind ("C-s" . swiper))

@@ -8,8 +8,8 @@
       (line     "#121212")
       (cursor   "#eceee3")
       (keyword  "#626b67")
-      (constant "#a5aaa7")
       (type     "#626b67")
+      (constant "#a5aaa7")
       (string   "#a5aaa7")
       (number   "#a5aaa7")
       (function "#888888")
@@ -41,7 +41,7 @@
    `(vertical-border     ((t (:foreground ,line))))
    
    `(error               ((t (:foreground ,type     :weigth normal))))
-   `(warning             ((t (:foreground ,comment  :weight normal))))
+   `(warning             ((t (:foreground ,gray     :weight normal))))
    `(success             ((t (:foreground ,constant :weight normal))))
    `(shadow              ((t (:foreground ,gray     :weight normal))))
 
@@ -53,7 +53,7 @@
    `(compilation-mode-line-run  ((t (:foreground ,constant))))
    
    ;;`(compilation-error          ((t (:foreground ,type))))
-   ;;`(compilation-warning        ((t (:foreground ,comment))))
+   ;;`(compilation-warning        ((t (:foreground ,gray))))
    ;;`(compilation-info           ((t (:foreground ,constant))))
 
    ;; --- Font-Lock ----------------------------
@@ -89,10 +89,10 @@
    `(font-lock-warning-face              ((t (:foreground ,type))))
 
    ;; --- ISearch ------------------------------
-   `(match          ((t (:background ,constant :foreground ,bg))))
-   `(isearch        ((t (:background ,constant :foreground ,bg :weight normal))))
-   `(isearch-fail   ((t (:background ,type     :foreground ,bg :weight bold))))
-   `(lazy-highlight ((t (:background ,constant :foreground ,bg))))
+   `(match          ((t (:background ,type     :foreground ,bg))))
+   `(isearch        ((t (:background ,type     :foreground ,bg :weight normal))))
+   `(isearch-fail   ((t (:background ,constant :foreground ,bg :weight normal))))
+   `(lazy-highlight ((t (:background ,fg       :foreground ,bg))))
 
    ;; --- Line-Number --------------------------
    `(line-number              ((t (:background ,bg :foreground ,gray))))
@@ -109,16 +109,16 @@
    `(hl-line ((t (:background ,line))))
    
    ;; --- Ivy ----------------------------------
-   ;;`(ivy-action ((t (:foreground ,black))))
-   `(ivy-completions-annotations ((t (:foreground ,black))))
-   ;;`(ivy-confirm-face ((t (:background ,fg :foreground ,black))))
+   `(ivy-action                  ((t (:foreground ,type))))
+   `(ivy-completions-annotations ((t (:foreground ,gray))))
+   `(ivy-confirm-face            ((t (:foreground ,constant))))
    `(ivy-current-match           ((t (:background ,fg   :foreground ,black))))
-   ;;`(ivy-match-required-face ((t (:background ,fg :foreground ,black))))
+   `(ivy-match-required-face     ((t (:background ,bg   :foreground ,cursor))))
    `(ivy-minibuffer-match-face-1 ((t (:background ,nil  :foreground ,nil))))
    `(ivy-minibuffer-match-face-2 ((t (:background ,type :foreground ,black))))
    `(ivy-minibuffer-match-face-3 ((t (:background ,type :foreground ,black))))
    `(ivy-minibuffer-match-face-4 ((t (:background ,type :foreground ,black))))
-   ;;`(ivy-prompt-match ((t (:background ,fg :foreground ,black))))
+   `(ivy-prompt-match            ((t (:background ,fg   :foreground ,black))))
    
    ;; --- Show-Paren ---------------------------
    `(show-paren-match            ((t (:background ,fg   :foreground ,bg))))
