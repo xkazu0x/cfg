@@ -109,16 +109,12 @@
 
 ;; --- Build Project -------------------------------------------
 (when xkazu0x-linux
-  (setq xkazu0x-run           "run.sh")
-  (setq xkazu0x-build         "build.sh")
-  (setq xkazu0x-build-debug   "build.sh debug")
-  (setq xkazu0x-build-release "build.sh release"))
+  (setq xkazu0x-run   "run.sh")
+  (setq xkazu0x-build "build.sh"))
 
 (when xkazu0x-win32
-  (setq xkazu0x-run           "run.bat")
-  (setq xkazu0x-build         "build.bat")
-  (setq xkazu0x-build-debug   "build.bat debug")
-  (setq xkazu0x-build-release "build.bat release"))
+  (setq xkazu0x-run   "run.bat")
+  (setq xkazu0x-build "build.bat"))
 
 (defun find-project-directory-recursive()
   (interactive)
@@ -146,12 +142,12 @@
 
 (defun build-project-debug()
   (interactive)
-  (if (find-project-directory) (compile xkazu0x-build-debug)
+  (if (find-project-directory) (compile (concat xkazu0x-build " debug"))
     (other-window 1)))
 
 (defun build-project-release()
   (interactive)
-  (if (find-project-directory) (compile xkazu0x-build-release)
+  (if (find-project-directory) (compile (concat xkazu0x-build " release"))
     (other-window 1)))
 
 ;; --- Key Binding ---------------------------------------------
