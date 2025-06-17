@@ -28,7 +28,7 @@
    `(border              ((t (:background ,fg       :foreground ,bg))))
    `(cursor              ((t (:background ,cursor))))
    `(default             ((t (:background ,bg       :foreground ,fg))))
-   `(fringe              ((t (:background ,bg       :foreground ,bg))))
+   `(fringe              ((t (:background ,bg       :foreground ,gray))))
    `(header-line         ((t (:background ,black    :foreground ,fg))))
    `(help-key-binding    ((t (:background ,fg       :foreground ,bg))))
    `(highlight           ((t (:background ,fg       :foreground ,bg))))
