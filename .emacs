@@ -163,8 +163,6 @@
 (global-set-key (kbd "<f10>") 'previous-error)
 (global-set-key (kbd "<f11>") 'next-error)
 
-(global-set-key (kbd "M-b") 'eval-buffer)
-
 (global-set-key (kbd "M-h") 'split-window-horizontally)
 (global-set-key (kbd "M-v") 'split-window-vertically)
 
@@ -201,10 +199,10 @@
 ;; (global-set-key (kbd "C-k") 'previous-line)
 ;; (global-set-key (kbd "C-l") 'right-char)
 
-;; (global-set-key (kbd "C-S-h") 'backward-word)
-;; (global-set-key (kbd "C-S-j") 'forward-paragraph)
-;; (global-set-key (kbd "C-S-k") 'backward-paragraph)
-;; (global-set-key (kbd "C-S-l") 'forward-word)
+;; (global-set-key (kbd "M-h") 'backward-word)
+;; (global-set-key (kbd "M-j") 'forward-paragraph)
+;; (global-set-key (kbd "M-k") 'backward-paragraph)
+;; (global-set-key (kbd "M-l") 'forward-word)
 
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
