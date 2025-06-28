@@ -79,7 +79,7 @@
                                     (access-label          . -4)
                                     (substatement-open     .  0)
                                     (statement-case-intro  .  4)
-                                    (statement-block-intro .  4)
+                                    (statement-block-intro .  c-lineup-for)
                                     (case-label            .  4)
                                     (block-open            .  0)
                                     (inline-open           .  0)
@@ -91,7 +91,7 @@
   "xkazu0x C style")
 
 (defun xkazu0x-c-hook ()
-  (c-add-style "excalibur" xkazu0x-c-style t)
+  (c-add-style "Caliburn" xkazu0x-c-style t)
   (setq tab-width 4 indent-tabs-mode nil)
   (c-set-offset 'member-init-intro '++)
   (c-toggle-auto-hungry-state -1)
@@ -193,16 +193,6 @@
     (move-beginning-of-line 1)
     (forward-char column)))
 (global-set-key (kbd "C-,") 'duplicate-line)
-
-;; (global-set-key (kbd "C-h") 'left-char)
-;; (global-set-key (kbd "C-j") 'next-line)
-;; (global-set-key (kbd "C-k") 'previous-line)
-;; (global-set-key (kbd "C-l") 'right-char)
-
-;; (global-set-key (kbd "M-h") 'backward-word)
-;; (global-set-key (kbd "M-j") 'forward-paragraph)
-;; (global-set-key (kbd "M-k") 'backward-paragraph)
-;; (global-set-key (kbd "M-l") 'forward-word)
 
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
