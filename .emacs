@@ -4,10 +4,10 @@
 
 ;; --- Decoration ----------------------------------------------
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-;;(load-theme 'excalibur t)
-(load-theme 'excalibur-metal t)
+(load-theme 'excalibur t)
+;;(load-theme 'excalibur-metal t)
 
-(set-frame-font "Iosevka 14" nil t)
+(set-frame-font "Iosevka 13" nil t)
 
 (setq fixme-modes '(c++-mode c-mode emacs-lisp-mode))
 (make-face 'font-lock-fixme-face)
@@ -79,7 +79,7 @@
                                     (access-label          . -4)
                                     (substatement-open     .  0)
                                     (statement-case-intro  .  4)
-                                    (statement-block-intro .  c-lineup-for)
+                                    (statement-block-intro .  4)
                                     (case-label            .  4)
                                     (block-open            .  0)
                                     (inline-open           .  0)
