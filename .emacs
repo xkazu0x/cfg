@@ -1,6 +1,5 @@
 ;; --- Custom File ---------------------------------------------
-(setq custom-file "emacs-custom.el")
-(load custom-file t)
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; --- Decoration ----------------------------------------------
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
@@ -267,37 +266,17 @@
 (setq visible-bell t)
 (setq ring-bell-function 'ignore)
 
-;; --- Tune Garbage Collector --
-;; the default settings are too conservative on modern machines making EMX
-;; spend too much time collecting garbage in alloc-heavy code.
-;;(setq gc-cons-threshold (* 4 1024 1024))
-;;(setq gc-cons-percentage 0.3)
-
 ;; --- Package Manager -----------------------------------------
-(eval-and-compile
-  (require 'package)
-  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                           ("gnu" . "https://elpa.gnu.org/packages/")))
-  (setq package-enable-at-startup nil)
-  (setq package-native-compile t)
-  (setq native-comp-async-report-warnings-errors nil)
-  (setq async-bytecomp-allowed-packages nil)
-  (package-initialize)
-  (defvar init-el-package-archives-refreshed nil)
-  (defun init-el-install-package (package-name)
-    (unless (package-installed-p package-name)
-      (unless init-el-package-archives-refreshed
-        (package-refresh-contents)
-        (setq init-el-package-archives-refreshed t)
-      (package-install package-name))))
-  (defmacro init-el-with-eval-after-load (feature &rest body)
-    (declare (indent 1) (debug t))
-    (require feature)
-    `(with-eval-after-load ',feature ,@body))
-  (defmacro init-el-require-package (package-name &optional feature-name)
-    (init-el-install-package package-name)
-    (require (or feature-name package-name))
-    `(init-el-install-package ',package-name)))
+(require 'package)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("gnu" . "https://elpa.gnu.org/packages/")))
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
 
 ;; --- Packages ------------------------------------------------
 (use-package ivy
