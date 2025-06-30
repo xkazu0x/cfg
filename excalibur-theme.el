@@ -89,10 +89,10 @@
    `(font-lock-warning-face              ((t (:foreground ,type))))
 
    ;; --- ISearch ------------------------------
-   `(match          ((t (:background ,type     :foreground ,bg))))
-   `(isearch        ((t (:background ,type     :foreground ,bg :weight normal))))
-   `(isearch-fail   ((t (:background ,constant :foreground ,bg :weight normal))))
-   `(lazy-highlight ((t (:background ,fg       :foreground ,bg))))
+   `(match          ((t (:background ,fg       :foreground ,bg))))
+   `(isearch        ((t (:background ,fg       :foreground ,bg :weight normal))))
+   `(isearch-fail   ((t (:background ,type     :foreground ,bg :weight normal))))
+   `(lazy-highlight ((t (:background ,constant :foreground ,bg))))
 
    ;; --- Line-Number --------------------------
    `(line-number              ((t (:background ,bg :foreground ,gray))))
@@ -108,33 +108,45 @@
    ;; --- hl-line ------------------------------
    `(hl-line ((t (:background ,line))))
    
-   ;; --- Ivy ----------------------------------
-   `(ivy-action                  ((t (:foreground ,type))))
-   `(ivy-completions-annotations ((t (:foreground ,gray))))
-   `(ivy-confirm-face            ((t (:foreground ,constant))))
-   `(ivy-current-match           ((t (:background ,fg   :foreground ,black))))
-   `(ivy-match-required-face     ((t (:background ,bg   :foreground ,cursor))))
-   `(ivy-minibuffer-match-face-1 ((t (:background ,nil  :foreground ,nil))))
-   `(ivy-minibuffer-match-face-2 ((t (:background ,type :foreground ,black))))
-   `(ivy-minibuffer-match-face-3 ((t (:background ,type :foreground ,black))))
-   `(ivy-minibuffer-match-face-4 ((t (:background ,type :foreground ,black))))
-   `(ivy-prompt-match            ((t (:background ,fg   :foreground ,black))))
-   
    ;; --- Show-Paren ---------------------------
    `(show-paren-match            ((t (:background ,fg   :foreground ,bg))))
    `(show-paren-match-expression ((t (:background ,fg   :foreground ,bg))))
    `(show-paren-mismatch         ((t (:background ,type :foreground ,bg))))
+
+   ;; --- Orderless ----------------------------
+   `(orderless-match-face-0 ((t (:background ,fg :foreground ,bg))))
+   `(orderless-match-face-1 ((t (:background ,fg :foreground ,bg))))
+   `(orderless-match-face-2 ((t (:background ,fg :foreground ,bg))))
+   `(orderless-match-face-3 ((t (:background ,fg :foreground ,bg))))
+   
+   ;; --- Marginalia ---------------------------
+   `(marginalia-date ((t (:foreground ,fg))))
+   
+   ;; --- Vertico ------------------------------
+   `(vertico-current ((t (:background ,line :foreground ,nil))))
+   
+   ;; --- Ivy ----------------------------------
+   `(ivy-action                  ((t (:foreground ,type))))
+   `(ivy-completions-annotations ((t (:foreground ,gray))))
+   `(ivy-confirm-face            ((t (:foreground ,constant))))
+   `(ivy-current-match           ((t (:background ,fg  :foreground ,bg))))
+   `(ivy-match-required-face     ((t (:background ,bg  :foreground ,cursor))))
+   `(ivy-minibuffer-match-face-1 ((t (:background ,nil :foreground ,nil))))
+   `(ivy-minibuffer-match-face-2 ((t (:background ,constant  :foreground ,bg))))
+   `(ivy-minibuffer-match-face-3 ((t (:background ,constant  :foreground ,bg))))
+   `(ivy-minibuffer-match-face-4 ((t (:background ,constant  :foreground ,bg))))
+   `(ivy-prompt-match            ((t (:background ,constant  :foreground ,bg))))
    
    ;; --- Swiper -------------------------------
-   `(swiper-background-match-face-1 ((t (:background ,nil  :foreground ,nil))))
-   `(swiper-background-match-face-2 ((t (:background ,type :foreground ,black))))
-   `(swiper-background-match-face-3 ((t (:background ,type :foreground ,black))))
-   `(swiper-background-match-face-4 ((t (:background ,type :foreground ,black))))
+   `(swiper-background-match-face-1 ((t (:background ,nil      :foreground ,nil))))
+   `(swiper-background-match-face-2 ((t (:background ,constant :foreground ,bg))))
+   `(swiper-background-match-face-3 ((t (:background ,constant :foreground ,bg))))
+   `(swiper-background-match-face-4 ((t (:background ,constant :foreground ,bg))))
 
    `(swiper-match-face-1 ((t (:background ,nil  :foreground ,nil))))
-   `(swiper-match-face-2 ((t (:background ,type :foreground ,black))))
-   `(swiper-match-face-3 ((t (:background ,type :foreground ,black))))
-   `(swiper-match-face-4 ((t (:background ,type :foreground ,black))))
+   `(swiper-match-face-2 ((t (:background ,fg :foreground ,bg))))
+   `(swiper-match-face-3 ((t (:background ,fg :foreground ,bg))))
+   `(swiper-match-face-4 ((t (:background ,fg :foreground ,bg))))
    
    ;; --- Tree-Sitter --------------------------
    `(tree-sitter-hl-face:embedded      ((t (:foreground ,type))))

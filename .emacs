@@ -279,10 +279,24 @@
 (require 'use-package)
 
 ;; --- Packages ------------------------------------------------
-(use-package ivy
-  :ensure t
-  :config (ivy-mode 1))
-
 (use-package swiper
   :ensure t
   :bind ("C-s" . swiper))
+
+(use-package vertico
+  :ensure t
+  :init (vertico-mode))
+
+(use-package marginalia
+  :after vertico
+  :ensure t
+  :init (marginalia-mode))
+
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless))
+  (completion-category-defaults nil)
+  (completion-category-overrides
+   '((file (styles basic-remote
+		   orderless)))))
