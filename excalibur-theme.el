@@ -108,23 +108,6 @@
    ;; --- hl-line ------------------------------
    `(hl-line ((t (:background ,line))))
    
-   ;; --- Show-Paren ---------------------------
-   `(show-paren-match            ((t (:background ,fg   :foreground ,bg))))
-   `(show-paren-match-expression ((t (:background ,fg   :foreground ,bg))))
-   `(show-paren-mismatch         ((t (:background ,type :foreground ,bg))))
-
-   ;; --- Orderless ----------------------------
-   `(orderless-match-face-0 ((t (:background ,fg :foreground ,bg))))
-   `(orderless-match-face-1 ((t (:background ,fg :foreground ,bg))))
-   `(orderless-match-face-2 ((t (:background ,fg :foreground ,bg))))
-   `(orderless-match-face-3 ((t (:background ,fg :foreground ,bg))))
-   
-   ;; --- Marginalia ---------------------------
-   `(marginalia-date ((t (:foreground ,fg))))
-   
-   ;; --- Vertico ------------------------------
-   `(vertico-current ((t (:background ,line :foreground ,nil))))
-   
    ;; --- Ivy ----------------------------------
    `(ivy-action                  ((t (:foreground ,type))))
    `(ivy-completions-annotations ((t (:foreground ,gray))))
@@ -136,6 +119,11 @@
    `(ivy-minibuffer-match-face-3 ((t (:background ,constant  :foreground ,bg))))
    `(ivy-minibuffer-match-face-4 ((t (:background ,constant  :foreground ,bg))))
    `(ivy-prompt-match            ((t (:background ,constant  :foreground ,bg))))
+   
+   ;; --- Show-Paren ---------------------------
+   `(show-paren-match            ((t (:background ,fg   :foreground ,bg))))
+   `(show-paren-match-expression ((t (:background ,fg   :foreground ,bg))))
+   `(show-paren-mismatch         ((t (:background ,type :foreground ,bg))))
    
    ;; --- Swiper -------------------------------
    `(swiper-background-match-face-1 ((t (:background ,nil      :foreground ,nil))))
@@ -157,6 +145,18 @@
    `(tree-sitter-hl-face:operator      ((t (:foreground ,fg))))
    `(tree-sitter-hl-face:property      ((t (:foreground ,fg :italic nil))))
    `(tree-sitter-hl-face:punctuation   ((t (:foreground ,fg))))
+   
+   ;; --- Vertico ------------------------------
+   `(vertico-current ((t (:background ,line :foreground ,nil))))
+   
+   ;; --- Marginalia ---------------------------
+   `(marginalia-date ((t (:foreground ,fg))))
+   
+   ;; --- Orderless ----------------------------
+   `(orderless-match-face-0 ((t (:background ,fg :foreground ,bg))))
+   `(orderless-match-face-1 ((t (:background ,fg :foreground ,bg))))
+   `(orderless-match-face-2 ((t (:background ,fg :foreground ,bg))))
+   `(orderless-match-face-3 ((t (:background ,fg :foreground ,bg))))
    ))
 
 ;;;###autoload

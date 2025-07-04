@@ -154,9 +154,14 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 (global-set-key (kbd "<f5>") 'run-project)
+
 (global-set-key (kbd "<f6>") 'build-project)
 (global-set-key (kbd "<f7>") 'build-project-debug)
 (global-set-key (kbd "<f8>") 'build-project-release)
+
+(global-set-key (kbd "M-m") 'build-project)
+(global-set-key (kbd "M-,") 'build-project-debug)
+(global-set-key (kbd "M-.") 'build-project-release)
 
 (global-set-key (kbd "<f9>") 'first-error)
 (global-set-key (kbd "<f10>") 'previous-error)
@@ -279,24 +284,28 @@
 (require 'use-package)
 
 ;; --- Packages ------------------------------------------------
+(use-package ivy
+  :ensure t
+  :config (ivy-mode 1))
+
 (use-package swiper
   :ensure t
   :bind ("C-s" . swiper))
 
-(use-package vertico
-  :ensure t
-  :init (vertico-mode))
+;; (use-package vertico
+;;   :ensure t
+;;   :init (vertico-mode))
 
-(use-package marginalia
-  :after vertico
-  :ensure t
-  :init (marginalia-mode))
+;; (use-package marginalia
+;;   :after vertico
+;;   :ensure t
+;;   :init (marginalia-mode))
 
-(use-package orderless
-  :ensure t
-  :custom
-  (completion-styles '(orderless))
-  (completion-category-defaults nil)
-  (completion-category-overrides
-   '((file (styles basic-remote
-		   orderless)))))
+;; (use-package orderless
+;;   :ensure t
+;;   :custom
+;;   (completion-styles '(orderless))
+;;   (completion-category-defaults nil)
+;;   (completion-category-overrides
+;;    '((file (styles basic-remote
+;; 		   orderless)))))
