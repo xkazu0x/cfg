@@ -11,19 +11,22 @@
 (setq fixme-modes '(c++-mode c-mode emacs-lisp-mode))
 (make-face 'font-lock-fixme-face)
 (make-face 'font-lock-note-face)
+(make-face 'font-lock-warr-face)
 (make-face 'font-lock-important-face)
 
 (mapc (lambda (mode)
 	(font-lock-add-keywords
 	 mode
 	 '(("\\<\\(TODO\\)" 1 'font-lock-fixme-face t)
-           ("\\<\\(NOTE\\)" 1 'font-lock-note-face t)
-           ("\\<\\(IMPORTANT\\)" 1 'font-lock-important-face t))))
+	   ("\\<\\(NOTE\\)" 1 'font-lock-note-face t)
+	   ("\\<\\(WARNING\\)" 1 'font-lock-warr-face t)
+	   ("\\<\\(IMPORTANT\\)" 1 'font-lock-important-face t))))
       fixme-modes)
 
-(modify-face 'font-lock-fixme-face "Red" nil nil t nil t nil nil)
-(modify-face 'font-lock-note-face "Dark Green" nil nil t nil t nil nil)
-(modify-face 'font-lock-important-face "Yellow" nil nil t nil t nil nil)
+(modify-face 'font-lock-fixme-face     "Red"        nil nil t nil t nil nil)
+(modify-face 'font-lock-note-face      "Dark Green" nil nil t nil t nil nil)
+(modify-face 'font-lock-warr-face      "Yellow"     nil nil t nil t nil nil)
+(modify-face 'font-lock-important-face "Yellow"       nil nil t nil t nil nil)
 
 ;; --- Lang Modes ----------------------------------------------
 (setq auto-mode-alist
