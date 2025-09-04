@@ -142,14 +142,9 @@
   (if (find-project-directory) (compile xkazu0x-build)
     (other-window 1)))
 
-(defun build-project-debug()
-  (interactive)
-  (if (find-project-directory) (compile (concat xkazu0x-build " debug"))
-    (other-window 1)))
-
-(defun build-project-release()
-  (interactive)
-  (if (find-project-directory) (compile (concat xkazu0x-build " release"))
+(defun build-project-option(option)
+  (interactive "sbuild: ")
+  (if (find-project-directory) (compile (concat (concat xkazu0x-build " ") option))
     (other-window 1)))
 
 ;; --- Key Binding ---------------------------------------------
@@ -157,14 +152,8 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 (global-set-key (kbd "<f5>") 'run-project)
-
 (global-set-key (kbd "<f6>") 'build-project)
-(global-set-key (kbd "<f7>") 'build-project-debug)
-(global-set-key (kbd "<f8>") 'build-project-release)
-
-(global-set-key (kbd "M-m") 'build-project)
-(global-set-key (kbd "M-,") 'build-project-debug)
-(global-set-key (kbd "M-.") 'build-project-release)
+(global-set-key (kbd "<f7>") 'build-project-option)
 
 (global-set-key (kbd "<f9>") 'first-error)
 (global-set-key (kbd "<f10>") 'previous-error)
