@@ -15,7 +15,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Startup processes
-# exec --no-startup-id xrandr --output Virtual-1 --mode 1600x900
+exec --no-startup-id xrandr --output Virtual-1 --mode 1600x900
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -130,25 +130,25 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Window colors
-client.focused #c1c1c1 #c1c1c1 #000000 #c1c1c1 #c1c1c1
-client.focused_inactive #000000 #000000 #c1c1c1 #000000 #000000
-client.unfocused #000000 #000000 #c1c1c1 #000000 #000000
+# client.focused #c1c1c1 #c1c1c1 #000000 #c1c1c1 #c1c1c1
+# client.focused_inactive #000000 #000000 #c1c1c1 #000000 #000000
+# client.unfocused #000000 #000000 #c1c1c1 #000000 #000000
 
 bar {
-        status_command i3blocks
+	status_command i3blocks
 	position bottom
 	separator_symbol "::"
-	colors {
-		background #000000
-		statusline #c1c1c1
-		separator #888888
+#	colors {
+#		background #000000
+#		statusline #c1c1c1
+#		separator #888888
 
-		focused_workspace #c1c1c1 #c1c1c1 #000000
-		inactive_workspace #000000 #000000 #c1c1c1
-		active_workspace #000000 #000000 #c1c1c1
-		urgent_workspace #000000 #000000 #c1c1c1
-		binding_mode #000000 #000000 #c1c1c1
-	}
+#		focused_workspace #c1c1c1 #c1c1c1 #000000
+#		inactive_workspace #000000 #000000 #c1c1c1
+#		active_workspace #000000 #000000 #c1c1c1
+#		urgent_workspace #000000 #000000 #c1c1c1
+#		binding_mode #000000 #000000 #c1c1c1
+#	}
 	font pango:Iosevka Fixed 12
 	# tray_output eDP
 }
