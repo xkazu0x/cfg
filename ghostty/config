@@ -1,0 +1,14 @@
+font-family = "Iosevka Term"
+font-size = 16
+font-style = "Regular"
+font-synthetic-style = false
+font-style-bold = false
+font-style-italic = false
+font-style-bold-italic = false
+alpha-blending = linear
+
+cursor-style = block
+shell-integration-features = no-cursor
+gtk-titlebar = false
+gtk-adwaita = false
+theme = custom
