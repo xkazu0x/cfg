@@ -6,7 +6,7 @@
 (load-theme 'excalibur t)
 ;;(load-theme 'excalibur-metal t)
 
-(set-frame-font "Iosevka 13" nil t)
+(set-frame-font "Iosevka 16" nil t)
 
 (setq fixme-modes '(c++-mode c-mode emacs-lisp-mode))
 (make-face 'font-lock-fixme-face)
