@@ -1,3 +1,5 @@
+custom-shader = shaders/cursor_smear.glsl
+
 font-family = "Iosevka Fixed"
 font-size = 16
 font-style = "Regular"
@@ -8,6 +10,7 @@ font-style-bold-italic = false
 alpha-blending = linear
 
 cursor-style = block
+cursor-style-blink = false
 shell-integration-features = no-cursor
 gtk-titlebar = false
 gtk-adwaita = false
