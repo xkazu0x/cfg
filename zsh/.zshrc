@@ -20,4 +20,8 @@ NEWLINE=$'\n'
 PROMPT="%F{#999999}%~%f %F{#121212}${vcs_info_msg_0_}%f${NEWLINE}%F{#a5aaa7}λ%f "
 zstyle ':vcs_info:git:*' formats '%b'
 
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
