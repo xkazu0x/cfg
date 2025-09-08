@@ -140,9 +140,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Window colors
-client.focused          #333333 #333333 #121212 #333333 #333333
-client.focused_inactive #121212 #121212 #333333 #121212 #121212
-client.unfocused        #121212 #121212 #333333 #121212 #121212
+# client.focused          #333333 #333333 #121212 #333333 #333333
+client.focused          #888888 #888888 #000000 #121212 #121212
+client.focused_inactive #121212 #121212 #888888 #121212 #121212
+client.unfocused        #121212 #121212 #888888 #121212 #121212
 
 bar {
 	status_command i3blocks
@@ -150,14 +151,14 @@ bar {
 	separator_symbol "::"
 	colors {
 		background #000000
-		statusline #333333
-		separator  #222222
+		statusline #888888
+		separator  #444444
 
-		focused_workspace  #333333 #333333 #121212
-		inactive_workspace #121212 #121212 #444444
-		active_workspace   #121212 #121212 #444444
-		urgent_workspace   #121212 #121212 #444444
-		binding_mode       #121212 #121212 #444444
+		focused_workspace  #888888 #888888 #000000
+		inactive_workspace #121212 #121212 #888888
+		active_workspace   #121212 #121212 #888888
+		urgent_workspace   #121212 #121212 #888888
+		binding_mode       #121212 #121212 #888888
 	}
 	font pango:Iosevka Fixed 12
 	# tray_output eDP
