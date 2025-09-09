@@ -1,176 +1,68 @@
 configuration {
+    display-drun: "search:";
+    display-combi: "search:";
 	font: "Iosevka Fixed 18";
-	timeout {
-		action: "kb-cancel";
-		delay: 0;
-	}
-	filebrowser {
-		directories-first: true;
-		sorting-method: "name";
-	}
+    modi: "drun";
+    show-icons: false;
 }
 
+@theme "/dev/null"
+
 * {
-	foreground:     #c1c1c1;
-	background:     #000000;
-	border-color:   #444444;
-	separatorcolor: #444444;
+    bg:     #0a0b0c;
+    bg-alt: #ffffff;
 
-	normal-foreground: #c1c1c1;
-	normal-background: #000000;
+    fg:     #ffffff;
+    fg-alt: #0a0b0c;
 
-	active-foreground: #000000;
-	active-background: #000000;
-
-	urgent-foreground: #5f8787;
-	urgent-background: #000000;
-
-	selected-normal-foreground: #c1c1c1;
-	selected-normal-background: #000000;
-
-	selected-active-foreground: #000000;
-	selected-active-background: #888888;
-
-	selected-urgent-foreground: #000000;
-	selected-urgent-background: #5f8787;
-
-	alternate-normal-foreground: #c1c1c1;
-	alternate-normal-background: #121212;
-
-	alternate-active-foreground: #999999;
-	alternate-active-background: #000000;
-
-	alternate-urgent-foreground: #5f8787;
-	alternate-urgent-background: #121212;
-
-	spacing: 2;
+    background-color: @bg;
+    text-color: @fg;
 }
 
 window {
-	background-color: #000000;
-	border: 0;
-	padding: 0px;
-}
+	background-color: @bg;
+    text-color: @fg;
 
-mainbox {
-	border: 0;
-	padding: 0;
-}
+    width: 350px;
+    height: 380px;
 
-message {
-	border: 1px dash 0px 0px;
-	padding: 1px;
-}
-
-textbox {
-	text-color: #c1c1c1;
-}
-
-listview {
-	fixed-height: 0;
-	border: 0px solid 0px 0px;
-	spacing: 2px;
-	scrollbar: true;
-	padding: 2px 0px 0px;
-}
-
-element normal.normal {
-	background-color: #000000;
-	text-color: #626b67;
-}
-
-element normal.urgent {
-	background-color: #000000;
-	text-color: #5f8787;
-}
-
-element normal.active {
-	background-color: #000000;
-	text-color: #626b67;
-}
-
-element selected.normal {
-	background-color: #121212;
-	text-color: #626b67;
-}
-
-element selected.urgent {
-	background-color: #5f8787;
-	text-color: #000000;
-}
-
-element selected.active {
-	background-color: #121212;
-	text-color: #626b67;
-}
-
-element alternate.normal {
-	background-color: #000000;
-	text-color: #626b67;
-}
-
-element alternate.urgent {
-	background-color: #000000;
-	text-color: #5f8787;
-}
-
-element alternate.active {
-	background-color: #000000;
-	text-color: #626b67;
-}
-
-element-text {
-	highlight: #a5aaa7;
-}
-
-scrollbar {
-	width: 4px;
-	border: 0;
-	handle-color: #444444;
-	handle-width: 8px;
-	padding: 0;
-}
-
-sidebar {
-	border: 0px dash 0px 0px;	
-}
-
-button {
-	spacing: 0;
-	text-color: #c1c1c1;
-}
-
-button selected {
-	background-color: #000000;
-	text-color: #c1c1c1;
+	border: 1px;
+    border-color: @bg-alt;
+    border-radius: 0px;
 }
 
 inputbar {
-	spacing: 0px;
-	text-color: #c1c1c1;
-	padding: 1px;
-	children: [ prompt, textbox-prompt-colon, entry, case-indicator ];
-}
+    children: [prompt, entry];
 
-case-indicator {
-	spacing: 0;
-	text-color: #c1c1c1;
-}
+    background-color: @bg;
+    text-color: @fg;
 
-entry {
-	spacing: 0;
-	text-color: #c1c1c1;
-	cursor-width: 1ch;
+    margin: 10px;
 }
 
 prompt {
-	spacing: 0;
-	text-color: #c1c1c1;
+    background-color: @bg;
 }
 
-textbox-prompt-colon {
-	expand: false;
-	str: ":";
-	margin: 0px 0.3em 0px 0px;
-	text-color: inherit;
+entry {
+    background-color: @bg;
+    text-color: @fg;
+
+    padding: 0px 5px;
+}
+
+element {
+    background-color: @bg;
+    text-color: @fg;
+    padding: 10px;
+}
+
+element selected {
+    background-color: @bg-alt;
+    text-color: @fg-alt;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
 }
