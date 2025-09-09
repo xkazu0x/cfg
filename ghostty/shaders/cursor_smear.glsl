@@ -66,7 +66,7 @@ vec4 saturate(vec4 color, float factor) {
 
 vec4 TRAIL_COLOR = iCurrentCursorColor;
 const float OPACITY = 0.6;
-const float DURATION = 0.0001; //IN SECONDS
+const float DURATION = 0.00001; //IN SECONDS
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
@@ -107,7 +107,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     vec4 newColor = vec4(fragColor);
 
     vec4 trail = TRAIL_COLOR;
-    trail = saturate(trail, 2.5);
+    // trail = saturate(trail, 2.5);
     // Draw trail
     newColor = mix(newColor, trail, antialising(sdfTrail));
     // Draw current cursor
