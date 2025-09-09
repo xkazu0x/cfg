@@ -1,11 +1,27 @@
 set $mod Mod4
-set $term ghostty
 
-font pango:Iosevka Fixed 12
+font pango:Iosevka Fixed 0
 
+# Gaps
+gaps inner 10
+gaps top 0
+gaps bottom 0
+gaps right 0 
+gaps left 0
+
+default_border pixel 1
+default_floating_border pixel 1
+
+client.focused          #c1c1c1 #c1c1c1 #c1c1c1 #c1c1c1 #c1c1c1
+client.focused_inactive #000000 #000000 #000000 #000000 #000000
+client.unfocused        #000000 #000000 #000000 #000000 #000000
+
+# Startup processes
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
+exec --no-startup-id xrandr --output Virtual-1 --mode 1600x900
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -14,9 +30,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Startup processes
-exec --no-startup-id xrandr --output Virtual-1 --mode 1600x900
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -24,37 +37,34 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
-bindsym $mod+Return exec $term
-bindsym $mod+Shift+q kill
+bindsym $mod+Return exec ghostty
 bindsym $mod+d exec --no-startup-id rofi -show combi --window-title "run"
-bindsym $mod+Shift+d exec --no-startup-id prime-run rofi -show combi --window-title "prime-run"
+bindsym $mod+q kill
 
 # change focus window
+bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+h focus left
 
+bindsym $mod+Left  focus left
 bindsym $mod+Down  focus down
 bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
-bindsym $mod+Left  focus left
 
 # move focused window
+bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-bindsym $mod+Shift+h move left
 
+bindsym $mod+Shift+Left  move left
 bindsym $mod+Shift+Down  move down
 bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
-bindsym $mod+Shift+Left  move left
 
-# split in horizontal orientation
+# split window
 bindsym $mod+Shift+v split h
-
-# split in vertical orientation
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
@@ -81,85 +91,39 @@ set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+y workspace number $ws1
+bindsym $mod+u workspace number $ws2
+bindsym $mod+i workspace number $ws3
+bindsym $mod+o workspace number $ws4
+bindsym $mod+p workspace number $ws5
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+y move container to workspace number $ws1
+bindsym $mod+Shift+u move container to workspace number $ws2
+bindsym $mod+Shift+i move container to workspace number $ws3
+bindsym $mod+Shift+o move container to workspace number $ws4
+bindsym $mod+Shift+p move container to workspace number $ws5
 
-# reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec i3-msg exit
 
-# resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym l resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
         bindsym h resize grow width 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
+        bindsym Left resize grow width 10 px or 10 ppt
+        bindsym Down resize shrink height 10 px or 10 ppt
+        bindsym Up resize grow height 10 px or 10 ppt
+        bindsym Right resize shrink width 10 px or 10 ppt
+
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
-
-# Window colors
-# client.focused          #333333 #333333 #121212 #333333 #333333
-client.focused          #444444 #444444 #000000 #121212 #121212
-client.focused_inactive #121212 #121212 #444444 #121212 #121212
-client.unfocused        #121212 #121212 #444444 #121212 #121212
-
-bar {
-	status_command i3blocks
-	position top
-	separator_symbol "::"
-	colors {
-		background #000000
-		statusline #444444
-		separator  #444444
-
-		focused_workspace  #444444 #444444 #000000
-		inactive_workspace #121212 #121212 #444444
-		active_workspace   #121212 #121212 #444444
-		urgent_workspace   #121212 #121212 #444444
-		binding_mode       #121212 #121212 #444444
-	}
-	font pango:Iosevka Fixed 12
-	# tray_output eDP
-}
