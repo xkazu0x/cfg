@@ -1,14 +1,5 @@
 return {
     {
-        "vague2k/vague.nvim",
-        lazy = false,
-        prioeity = 1000,
-        config = function()
-            require("vague").setup({})
-            vim.cmd("colorscheme vague")
-        end
-    },
-    {
         "ellisonleao/gruvbox.nvim",
         config = function()
             require("gruvbox").setup({
@@ -21,9 +12,10 @@ return {
                     folds = false,
                 },
             })
-            --vim.cmd("colorscheme gruvbox")
+            vim.cmd.colorscheme("gruvbox");
         end
     },
+
     {
         "metalelf0/black-metal-theme-neovim",
         lazy = false,
@@ -34,7 +26,7 @@ return {
                 variant = "dark",
                 alt_bg = false,
             })
-            --vim.cmd("colorscheme black-metal")
+            --require("black-metal").load()
         end
     },
 }
