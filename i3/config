@@ -1,9 +1,9 @@
 set $mod Mod4
 
-font pango:Iosevka Fixed 12
+font pango:Iosevka Fixed 10
 
 # Gaps
-gaps inner 10
+gaps inner 16
 gaps top 0
 gaps bottom 0
 gaps right 0
@@ -15,6 +15,10 @@ default_floating_border pixel 1
 client.focused          #ffffff #ffffff #000000 #ffffff #ffffff
 client.focused_inactive #000000 #000000 #ffffff #000000 #000000
 client.unfocused        #000000 #000000 #ffffff #000000 #000000
+
+# client.focused          #9a9a9a #9a9a9a #484848 #9a9a9a #9a9a9a
+# client.focused_inactive #484848 #484848 #9a9a9a #484848 #484848
+# client.unfocused        #484848 #484848 #9a9a9a #484848 #484848
 
 # Startup processes
 exec --no-startup-id dex --autostart --environment i3
