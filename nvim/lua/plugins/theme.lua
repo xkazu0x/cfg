@@ -12,7 +12,7 @@ return {
                     folds = false,
                 },
             })
-            vim.cmd.colorscheme("gruvbox");
+            --vim.cmd.colorscheme("gruvbox");
         end
     },
 
@@ -26,7 +26,7 @@ return {
                 variant = "dark",
                 alt_bg = false,
             })
-            --require("black-metal").load()
+            require("black-metal").load()
         end
     },
 }
