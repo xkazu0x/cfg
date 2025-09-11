@@ -24,7 +24,7 @@ client.unfocused        #000000 #000000 #ffffff #000000 #000000
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
-exec --no-startup-id xrandr --output Virtual-1 --mode 1920x1080
+exec --no-startup-id xrandr --output Virtual-1 --mode 800x600
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Use pactl to adjust volume in PulseAudio.
@@ -131,3 +131,4 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+bindsym Mod1+Tab exec setxkbmap -option caps:none -query | grep us && setxkbmap -layout br || setxkbmap -layout us
