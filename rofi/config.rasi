@@ -1,9 +1,6 @@
 configuration {
-    display-drun: "search:";
     display-combi: "search:";
-	font: "Iosevka Fixed 18";
-    modi: "drun";
-    show-icons: false;
+    font: "Iosevka 18";
 }
 
 @theme "/dev/null"

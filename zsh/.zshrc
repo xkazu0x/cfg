@@ -3,6 +3,8 @@ SAVEHIST=10000
 HISTFILE=~/.cache/zsh_history
 HISTCONTROL=ignoreboth
 
+set -o emacs
+
 autoload -U colors && colors
 NEWLINE=$'\n'
 PROMPT="%~${NEWLINE}λ "
