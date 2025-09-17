@@ -1,0 +1,15 @@
+[window]
+padding = { x = 8, y = 8 }
+opacity = 0.8
+
+[font]
+normal.family = "Iosevka Fixed"
+bold.family = "Iosevka Fixed"
+italic.family = "Iosevka Fixed"
+bold_italic.family = "Iosevka Fixed"
+
+size = 16.0
+
+[colors.primary]
+foreground = "#c1c1c1"
+background = "#000000"
