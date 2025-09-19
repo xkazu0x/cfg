@@ -13,3 +13,13 @@ size = 16.0
 [colors.primary]
 foreground = "#c1c1c1"
 background = "#000000"
+
+[colors.normal]
+black   = "#121212"
+red     = "#333333"
+green   = "#666666"
+yellow  = "#eeeeee"
+blue    = "#a7aa1e"
+magenta = "#6a6c4c"
+cyan    = "#a7aa1e"
+white   = "#eeeeee"
