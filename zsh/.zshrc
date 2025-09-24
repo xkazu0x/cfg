@@ -7,7 +7,6 @@ set -o emacs
 
 autoload -U colors && colors
 NEWLINE=$'\n'
-PROMPT="%~${NEWLINE}λ "
 PROMPT="%F{#666666}%~%f${NEWLINE}%F{#c1c1c1}λ%f "
 
 autoload -U compinit

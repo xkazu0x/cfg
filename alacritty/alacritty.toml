@@ -8,7 +8,7 @@ bold.family = "Iosevka Fixed"
 italic.family = "Iosevka Fixed"
 bold_italic.family = "Iosevka Fixed"
 
-size = 16.0
+size = 15
 
 [colors.primary]
 foreground = "#c1c1c1"
@@ -17,9 +17,19 @@ background = "#000000"
 [colors.normal]
 black   = "#121212"
 red     = "#333333"
-green   = "#666666"
+green   = "#79241f"
 yellow  = "#eeeeee"
-blue    = "#a7aa1e"
-magenta = "#6a6c4c"
-cyan    = "#a7aa1e"
+blue    = "#79241f"
+magenta = "#333333"
+cyan    = "#666666"
+white   = "#eeeeee"
+
+[colors.bright]
+black   = "#121212"
+red     = "#333333"
+green   = "#79241f"
+yellow  = "#eeeeee"
+blue    = "#79241f"
+magenta = "#333333"
+cyan    = "#666666"
 white   = "#eeeeee"

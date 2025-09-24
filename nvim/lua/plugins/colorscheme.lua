@@ -7,7 +7,17 @@ return {
             require("black-metal").setup({
                 theme = "marduk",
                 variant = "dark",
-                alt_bg = false,
+                code_style = {
+                    comments = "none",
+                    conditionals = "none",
+                    functions = "none",
+                    keywords = "none",
+                    headings = "bold",
+                    operators = "none",
+                    keyword_return = "none",
+                    strings = "none",
+                    variables = "none",
+                },
             })
             require("black-metal").load()
         end
