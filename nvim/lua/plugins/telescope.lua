@@ -25,8 +25,7 @@ return {
                         enable_preview = true,
                     },
                     find_files = {
-                        theme = "ivy",
-                        hidden = true,
+                        -- theme = "ivy",
                     },
                 },
                 extensions = {
