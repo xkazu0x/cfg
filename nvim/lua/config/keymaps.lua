@@ -10,9 +10,6 @@ vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-W>\\>/<C-r><C-w>/gI<Left><Left>
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
-vim.keymap.set("n", "<leader>a", "$")
-vim.keymap.set("n", "<leader>i", "^")
-
 vim.keymap.set("n", "<leader>h", "<C-w>h")
 vim.keymap.set("n", "<leader>j", "<C-w>j")
 vim.keymap.set("n", "<leader>k", "<C-w>k")
@@ -23,18 +20,19 @@ vim.keymap.set("n", "<leader>J", "<cmd>:horizontal resize +5<CR>")
 vim.keymap.set("n", "<leader>K", "<cmd>:horizontal resize -5<CR>")
 vim.keymap.set("n", "<leader>L", "<cmd>:vertical resize +5<CR>")
 
-vim.keymap.set("n", "H", "b")
-vim.keymap.set("n", "J", "}")
-vim.keymap.set("n", "K", "{")
-vim.keymap.set("n", "L", "w")
+vim.keymap.set("n", "<leader>i", "^")
+vim.keymap.set("n", "<leader>a", "$")
 
-vim.keymap.set("v", "H", "b")
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", "L", "w")
+vim.keymap.set({"n", "v"}, "H", "b")
+vim.keymap.set({"n", "v"}, "J", "}")
+vim.keymap.set({"n", "v"}, "K", "{")
+vim.keymap.set({"n", "v"}, "L", "e")
 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")

@@ -18,6 +18,11 @@ return {
                     strings = "none",
                     variables = "none",
                 },
+                highlights = {
+                    CursorLine = { bg = "#121212" },
+                    ["@punctuation.bracket"] = { fg = "#999999" },
+                    ["@punctuation.special"] = { fg = "#999999" },
+                },
             })
             require("black-metal").load()
         end

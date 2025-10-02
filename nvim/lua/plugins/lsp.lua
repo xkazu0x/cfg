@@ -36,8 +36,7 @@ return {
     --                 "--completion-style=detailed",
     --             },
     --             filetypes = { "c", "cpp", "objc", "objcpp" },
-    --             root_markers = { "src" },
-    --             -- root_dir = vim.lsp.util.root_pattern("../src"),
+    --             root_markers = { "src", "*.c" },
     --             single_file_support = true,
     --         })
     --         vim.lsp.enable("clangd")
