@@ -1,28 +1,39 @@
 return {
-    -- {
-    --     "neovim/nvim-lspconfig",
-    --     config = function()
-    --         vim.lsp.config("lua_ls", {})
-    --         vim.lsp.enable("lua_ls")
-    --         vim.lsp.config("clangd", {
-    --             cmd = {
-    --                 "clangd",
-    --                 "--background-index",
-    --                 "--pch-storage=memory",
-    --                 "--all-scopes-completion",
-    --                 "--pretty",
-    --                 "--header-insertion=never",
-    --                 "-j=4",
-    --                 "--inlay-hints",
-    --                 "--header-insertion-decorators",
-    --                 "--function-arg-placeholders",
-    --                 "--completion-style=detailed",
-    --             },
-    --             filetypes = { "c", "cpp", "objc", "objcpp" },
-    --             root_markers = { "src", "*.c" },
-    --             single_file_support = true,
-    --         })
-    --         vim.lsp.enable("clangd")
-    --     end
-    -- }
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "lua_ls",
+          "clangd",
+        }
+      })
+    end
+  },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      vim.lsp.config("lua_ls", {})
+      vim.lsp.enable("lua_ls")
+      -- vim.lsp.config("clangd", {
+      --   cmd = {
+      --     "clangd",
+      --     "--background-index",
+      --     "--pch-storage=memory",
+      --     "--all-scopes-completion",
+      --     "--pretty",
+      --     "--header-insertion=never",
+      --     "-j=4",
+      --     "--inlay-hints",
+      --     "--header-insertion-decorators",
+      --     "--function-arg-placeholders",
+      --     "--completion-style=detailed",
+      --   },
+      --   filetypes = { "c", "cpp", "objc", "objcpp" },
+      --   root_markers = { "src", "*.c" },
+      --   single_file_support = true,
+      -- })
+      -- vim.lsp.enable("clangd")
+    end
+  }
 }
