@@ -13,13 +13,21 @@ config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 
 config.color_scheme = "Black Metal (Marduk) (base16)"
--- config.font = wezterm.font({ family = "Iosevka Fixed", weight = "Regular" })
--- config.font_size = 13
-config.font = wezterm.font({ family = "Terminus (TTF) for Windows", weight = "Bold" })
-config.font_size = 13.5
+config.font = wezterm.font({ family = "Iosevka Fixed", weight = "Regular" })
+config.font_size = 15
+-- config.font = wezterm.font({ family = "Terminus (TTF) for Windows", weight = "Bold" })
+-- config.font_size = 15
 config.front_end = "WebGpu"
 
 config.window_decorations = "NONE | RESIZE"
+
+config.window_padding = {
+  top = 0,
+  left = 0,
+  bottom = 0,
+  right = 0,
+}
+
 config.window_frame = {
   active_titlebar_bg = "#000000",
 }
@@ -31,12 +39,12 @@ config.keys = {
     action = wezterm.action.PaneSelect,
   },
   { 
-    key = "n",
-    mods = "CTRL",
+    key = "N",
+    mods = "CTRL|SHIFT",
     action = wezterm.action.ActivateTabRelative(1),
   },
   { 
-    key = "N", 
+    key = "M", 
     mods = "CTRL|SHIFT", 
     action = wezterm.action.ToggleFullScreen,
   },
