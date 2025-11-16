@@ -9,23 +9,36 @@ return {
     config = function()
       require("telescope").setup({
         defaults = {
+          file_ignore_patterns = { ".git" };
+          sorting_strategy = "ascending",
+          scroll_strategy = "limit",
+          layout_strategy = "horizontal",
+          layout_config = {
+            prompt_position = "top",
+            anchor = "CENTER",
+            height = 0.8,
+            width = 0.7,
+            preview_width = 0.6,
+          },
           border = {
             prompt = { 1, 1, 1, 1 },
             results = { 1, 1, 1, 1 },
             preview = { 1, 1, 1, 1 },
           },
           borderchars = {
-            prompt = { " ", " ", "─", "│", "│", " ", "─", "└" },
-            results = { "─", " ", " ", "│", "┌", "─", " ", "│" },
+            prompt = { "─", " ", " ", "│", "┌", "─", " ", "│" },
+            results = { " ", " ", "─", "│", "│", " ", "─", "└" },
             preview = { "─", "│", "─", "│", "┬", "┐", "┘", "┴" },
           },
+          -- dynamic_preview_title = true,
+          -- results_title = "",
         },
         pickers = {
           colorscheme = {
             enable_preview = true,
           },
           find_files = {
-            -- theme = "ivy",
+            hidden = false,
           },
         },
         extensions = {
