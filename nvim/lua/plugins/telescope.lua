@@ -9,7 +9,11 @@ return {
     config = function()
       require("telescope").setup({
         defaults = {
-          file_ignore_patterns = { ".git" };
+          file_ignore_patterns = {
+            ".git", ".obj",
+            ".pdb", ".exp", ".lib", ".dll", ".exe",
+            ".so"
+          };
           sorting_strategy = "ascending",
           scroll_strategy = "limit",
           layout_strategy = "horizontal",
@@ -17,8 +21,8 @@ return {
             prompt_position = "top",
             anchor = "CENTER",
             height = 0.8,
-            width = 0.7,
-            preview_width = 0.6,
+            width = 0.67,
+            preview_width = 0.67,
           },
           border = {
             prompt = { 1, 1, 1, 1 },
