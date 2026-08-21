@@ -1,55 +1,102 @@
+* {
+  font: "Iosevka 19";
+  g-spacing: 10px;
+  g-margin: 0;
+  b-color: #000000FF;
+  fg-color: #FFFFFFFF;
+  fgp-color: #888888FF;
+  b-radius: 0px;
+  g-padding: 8px;
+  hl-color: #FFFFFFFF;
+  hlt-color: #000000FF;
+  alt-color: #111111FF;
+  wbg-color: #000000FF;
+  w-border: 2px solid;
+  w-border-color: #FFFFFFFF;
+  w-padding: 4px;
+}
+
 configuration {
-  font:                "Iosevka 18";
-  display-drun:        "search: ";
+  modi: "drun";
+  show-icons: true;
+  display-drun: ">";
   drun-display-format: "{name}";
 }
 
-@theme "/dev/null"
-
-* {
-  bg:               #000000;
-  fg:               #eeeeee;
-  bg-alt:           #eeeeee;
-  fg-alt:           #000000;
-  pad:              8px 16px;
-  background-color: @bg;
-  text-color:       @fg;
+listview {
+  columns: 1;
+  lines: 7;
+  fixed-height: true;
+  fixed-columns: true;
+  cycle: false;
+  scrollbar: false;
+  border: 0px solid;
 }
 
 window {
-  background-color: @bg;
-  text-color:       @fg;
-  width:            640px;
-  height:           390px;
-  border:           1px;
-  border-color:     @bg-alt;
-  // border-radius:    4px;
+  transparency: "real";
+  width: 450px;
+  border-radius: @b-radius;
+  background-color: @wbg-color;
+  border: @w-border;
+  border-color: @w-border-color;
+  padding: @w-padding;
+}
+
+prompt {
+  text-color: @fg-color;
 }
 
 inputbar {
-  children: [prompt, entry];
-  background-color: @bg;
-  text-color:       @fg;
-  padding:          @pad;
+  children: ["prompt", "entry"];
+  spacing: @g-spacing;
 }
 
 entry {
-  background-color: @bg;
-  text-color:       @fg;
+  placeholder: "Search Apps";
+  text-color: @fg-color;
+  placeholder-color: @fgp-color;
+}
+
+mainbox {
+  spacing: @g-spacing;
+  margin: @g-margin;
+  padding: @g-padding;
+  children: ["inputbar", "listview", "message"];
 }
 
 element {
-  background-color: @bg;
-  text-color:       @fg;
-  padding:          @pad;
+  spacing: @g-spacing;
+  margin: @g-margin;
+  padding: @g-padding;
+  border: 0px solid;
+  border-radius: @b-radius;
+  border-color: @b-color;
+  background-color: transparent;
+  text-color: @fg-color;
 }
 
-element selected {
-  background-color: @bg-alt;
-  text-color:       @fg-alt;
+element normal.normal {
+  background-color: transparent;
+  text-color: @fg-color;
 }
 
-element-text {
-  background-color: inherit;
-  text-color:       inherit;
+element alternate.normal {
+  background-color: @alt-color;
+  text-color: @fg-color;
+}
+
+element selected.active {
+  background-color: @hl-color;
+  text-color: @hlt-color;
+}
+
+element selected.normal {
+  background-color: @hl-color;
+  text-color: @hlt-color;
+}
+
+message {
+  background-color: red;
+  border: 0px solid;
 }

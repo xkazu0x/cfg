@@ -1,4 +1,4 @@
--- COMMON ------------------------------------------------------
+--- COMMON ------------------------------------------------------
 
 vim.g.mapleader = " "
 
@@ -10,37 +10,37 @@ vim.keymap.set("n", "<leader>w", vim.cmd.w)
 vim.keymap.set("n", "<leader>o", vim.cmd.so)
 vim.keymap.set("n", "<leader>Q", vim.cmd.qa)
 
--- HELPERS -----------------------------------------------------
-
-vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-W>\\>/<C-r><C-w>/gI<Left><Left><Left>")
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", {silent = true})
-vim.keymap.set("x", "<leader>p", "\"_dP")
+--- HELPERS -----------------------------------------------------
 
 -- shift selected line up/down
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
--- WINDOW ------------------------------------------------------
+vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-W>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", {silent = true})
+vim.keymap.set("x", "<leader>p", "\"_dP")
 
--- move between windows
+--- WINDOW ------------------------------------------------------
+
+-- move focus
 vim.keymap.set("n", "<leader>h", "<C-w>h")
 vim.keymap.set("n", "<leader>j", "<C-w>j")
 vim.keymap.set("n", "<leader>k", "<C-w>k")
 vim.keymap.set("n", "<leader>l", "<C-w>l")
 
--- move windows
+-- move window
 vim.keymap.set("n", "<leader>H", "<C-w>H")
 vim.keymap.set("n", "<leader>J", "<C-w>J")
 vim.keymap.set("n", "<leader>K", "<C-w>K")
 vim.keymap.set("n", "<leader>L", "<C-w>L")
 
--- resize windows
+-- resize window
 vim.keymap.set("n", "_", "<cmd>:vertical resize -4<CR>")
 vim.keymap.set("n", "+", "<cmd>:vertical resize +4<CR>")
 vim.keymap.set("n", "<leader>_", "<cmd>:horizontal resize -4<CR>")
 vim.keymap.set("n", "<leader>+", "<cmd>:horizontal resize +4<CR>")
 
--- MOVEMENT ----------------------------------------------------
+--- MOVEMENT ----------------------------------------------------
 
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", {expr = true, silent = true})
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", {expr = true, silent = true})
