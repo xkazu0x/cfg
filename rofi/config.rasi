@@ -1,24 +1,24 @@
 * {
-  font: "Iosevka 19";
-  g-spacing: 10px;
+  font: "Iosevka 15";
+  g-spacing: 8px;
   g-margin: 0;
   b-color: #000000FF;
   fg-color: #FFFFFFFF;
   fgp-color: #888888FF;
   b-radius: 0px;
-  g-padding: 8px;
+  g-padding: 4px 10px;
   hl-color: #FFFFFFFF;
   hlt-color: #000000FF;
   alt-color: #111111FF;
   wbg-color: #000000FF;
   w-border: 2px solid;
   w-border-color: #FFFFFFFF;
-  w-padding: 4px;
+  w-padding: 10px 4px;
 }
 
 configuration {
   modi: "drun";
-  show-icons: true;
+  // show-icons: true;
   display-drun: ">";
   drun-display-format: "{name}";
 }
@@ -53,7 +53,7 @@ inputbar {
 }
 
 entry {
-  placeholder: "Search Apps";
+  placeholder: "";
   text-color: @fg-color;
   placeholder-color: @fgp-color;
 }
