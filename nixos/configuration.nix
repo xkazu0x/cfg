@@ -42,8 +42,11 @@
   services.xserver.enable = true;
   services.xserver.xkb = { layout = "us"; variant = ""; };
   services.displayManager.ly.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
   services.displayManager.defaultSession = "niri";
+
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
 
   # --- Program Toggles ----------------------------------------
   programs.steam.enable = true;
@@ -53,9 +56,14 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
+    ];
     configPackages = [ pkgs.niri ];
   };
+
+  services.gnome.gnome-keyring.enable = true;
 
   # --- Hardware (NVIDIA) --------------------------------------
   boot.initrd.kernelModules = [ "nvidia" ];
@@ -81,11 +89,15 @@
   users.users.loser = {
     isNormalUser = true;
     description = "loser";
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   # --- Fonts --------------------------------------------------
   fonts.packages = with pkgs; [
+    nerd-fonts.iosevka
     iosevka
   ];
 
@@ -109,19 +121,24 @@
     brave
     rofi
     swaybg
+    waybar
+    nautilus
+    xwayland-satellite
+    kdePackages.kdenlive
     obs-studio
     osu-lazer-bin
     libreoffice
     localsend
-    vlc
     tmux
+    vlc
   ];
 
-  environment.etc."xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+  # environment.etc."xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
   # --- Settings -----------------------------------------------
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.allowed-users = [ "@wheel" ];
 
   # --- Maintenance --------------------------------------------
   # system.autoUpgrade = {
