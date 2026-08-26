@@ -42,15 +42,12 @@
   services.xserver.enable = true;
   services.xserver.xkb = { layout = "us"; variant = ""; };
   services.displayManager.ly.enable = true;
-  # services.desktopManager.plasma6.enable = true;
   services.displayManager.defaultSession = "niri";
-
-  services.gvfs.enable = true;
-  services.udisks2.enable = true;
 
   # --- Program Toggles ----------------------------------------
   programs.steam.enable = true;
   programs.gamemode.enable = true;
+  programs.dconf.enable = true;
   programs.xwayland.enable = true;
   programs.niri.enable = true;
 
@@ -64,6 +61,11 @@
   };
 
   services.gnome.gnome-keyring.enable = true;
+  services.dbus.packages = [ pkgs.nautilus ];
+
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+  services.udiskie.enable = true;
 
   # --- Hardware (NVIDIA) --------------------------------------
   boot.initrd.kernelModules = [ "nvidia" ];
@@ -115,7 +117,7 @@
     clang
     gnumake
     spotify
-    vesktop
+    discord
     ghostty
     neovim
     brave
@@ -132,8 +134,6 @@
     tmux
     vlc
   ];
-
-  # environment.etc."xdg/menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
   # --- Settings -----------------------------------------------
   nixpkgs.config.allowUnfree = true;
