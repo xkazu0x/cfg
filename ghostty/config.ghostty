@@ -14,7 +14,7 @@ cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
 
-background-opacity = 0.9
+background-opacity = 0.85
 background-blur = true
 
 window-decoration = none

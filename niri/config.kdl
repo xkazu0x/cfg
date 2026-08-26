@@ -68,6 +68,19 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 window-rule {
   draw-border-with-background false
+  background-effect {
+    blur true
+  }
+}
+
+window-rule {
+  match app-id="vesktop"
+  open-maximized true
+}
+
+window-rule {
+  match app-id="spotify"
+  open-maximized true
 }
 
 binds {
