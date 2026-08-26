@@ -1,15 +1,5 @@
 environment {
-  XDG_CURRENT_DESKTOP "niri"
-  XDG_SESSION_TYPE "wayland"
-  XDG_SESSION_DESKTOP "niri"
-
-  TERMINAL "ghostty"
-  EDITOR "nvim"
-
-  QT_QPA_PLATFORM "wayland"
-  QT_QPA_PLATFORMTHEME "qt6ct"
-  QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-  QT_AUTO_SCREEN_SCALE_FACTOR "1"
+  ELECTRON_OZONE_PLATFORM_INIT "auto"
 }
 
 input {
@@ -52,7 +42,8 @@ layout {
   }
 }
 
-spawn-at-startup "noctalia"
+// spawn-at-startup "noctalia"
+spawn-at-startup "waybar"
 spawn-sh-at-startup "swaybg -m fill -i ~/walls/breeze.jpg"
 
 hotkey-overlay {
