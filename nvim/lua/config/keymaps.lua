@@ -1,5 +1,4 @@
 --- COMMON ------------------------------------------------------
-
 vim.g.mapleader = " "
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = true})
@@ -11,7 +10,6 @@ vim.keymap.set("n", "<leader>o", vim.cmd.so)
 vim.keymap.set("n", "<leader>Q", vim.cmd.qa)
 
 --- HELPERS -----------------------------------------------------
-
 -- shift selected line up/down
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
@@ -21,7 +19,6 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", {silent = true})
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
 --- WINDOW ------------------------------------------------------
-
 -- move focus
 vim.keymap.set("n", "<leader>h", "<C-w>h")
 vim.keymap.set("n", "<leader>j", "<C-w>j")
@@ -41,7 +38,6 @@ vim.keymap.set("n", "<leader>_", "<cmd>:horizontal resize -4<CR>")
 vim.keymap.set("n", "<leader>+", "<cmd>:horizontal resize +4<CR>")
 
 --- MOVEMENT ----------------------------------------------------
-
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", {expr = true, silent = true})
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", {expr = true, silent = true})
 

@@ -1,7 +1,3 @@
-environment {
-  ELECTRON_OZONE_PLATFORM_INIT "auto"
-}
-
 input {
   keyboard {
     repeat-rate 25
@@ -56,6 +52,15 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
 
+environment {
+  ELECTRON_OZONE_PLATFORM_INIT "auto"
+}
+
+cursor {
+  // xcursor-theme "breeze_cursors"
+  xcursor-size 24
+}
+
 window-rule {
   draw-border-with-background false
   background-effect {
@@ -64,6 +69,7 @@ window-rule {
 }
 
 window-rule {
+  match app-id="brave-browser"
   match app-id="discord"
   match app-id="spotify"
   match app-id="Spotify"
@@ -73,10 +79,11 @@ window-rule {
 binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
 
-  Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
+  Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
+  Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+
   Mod+B hotkey-overlay-title="Open a Browser: brave" { spawn "brave"; }
-  Mod+E hotkey-overlay-title="Open a File Manager: dolphin" { spawn "dolphin"; }
-  Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
+  Mod+E hotkey-overlay-title="Open a File Manager: nautilus" { spawn "nautilus"; }
   Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
   // Example volume keys mappings for PipeWire & WirePlumber.

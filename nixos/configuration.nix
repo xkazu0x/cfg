@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -28,6 +28,12 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  # --- Display Manager ----------------------------------------
+  services.xserver.enable = true;
+  services.xserver.xkb = { layout = "us"; variant = ""; };
+  services.displayManager.ly.enable = true;
+  services.displayManager.defaultSession = "niri";
+
   # --- Audio (Pipewire) ---------------------------------------
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -37,12 +43,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-  # --- Display Manager ----------------------------------------
-  services.xserver.enable = true;
-  services.xserver.xkb = { layout = "us"; variant = ""; };
-  services.displayManager.ly.enable = true;
-  services.displayManager.defaultSession = "niri";
 
   # --- Program Toggles ----------------------------------------
   programs.steam.enable = true;
@@ -62,10 +62,8 @@
 
   services.gnome.gnome-keyring.enable = true;
   services.dbus.packages = [ pkgs.nautilus ];
-
   services.gvfs.enable = true;
   services.udisks2.enable = true;
-  services.udiskie.enable = true;
 
   # --- Hardware (NVIDIA) --------------------------------------
   boot.initrd.kernelModules = [ "nvidia" ];
@@ -91,20 +89,66 @@
   users.users.loser = {
     isNormalUser = true;
     description = "loser";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
+    extraGroups = [ "networkmanager" "wheel" ];
   };
 
   # --- Fonts --------------------------------------------------
+  # nixpkgs.config = {
+  #   packageOverrides = super: let
+  #     self = super.pkgs;
+  #   in {
+  #     iosevka-misery = self.iosevka.override {
+  #       set = "Misery";
+  #       privateBuildPlan = ''
+  #         [buildPlans.IosevkaMisery]
+  #         family = "Iosevka Misery"
+  #         spacing = "normal"
+  #         serifs = "sans"
+  #         noCvSs = true
+  #         exportGlyphNames = false
+  #         noLigation = true
+  #
+  #         [buildPlans.IosevkaMisery.variants]
+  #         inherits = "ss06"
+  #
+  #         [buildPlans.IosevkaMisery.variants.design]
+  #         lig-single-arrow-bar = "without-notch"
+  #
+  #         [buildPlans.IosevkaMisery.weights.Regular]
+  #         shape = 400
+  #         menu = 400
+  #         css = 400
+  #
+  #         [buildPlans.IosevkaMisery.weights.Bold]
+  #         shape = 700
+  #         menu = 700
+  #         css = 700
+  #
+  #         [buildPlans.IosevkaMisery.weights.Light]
+  #         shape = 300
+  #         menu = 300
+  #         css = 300
+  #
+  #         [buildPlans.IosevkaMisery.slopes.Upright]
+  #         angle = 0
+  #         shape = "upright"
+  #         menu = "upright"
+  #         css = "normal"
+  #       '';
+  #     };
+  #   };
+  # };
+
   fonts.packages = with pkgs; [
-    nerd-fonts.iosevka
     iosevka
+    # iosevka-misery
+    nerd-fonts.iosevka
   ];
 
   # --- Packages -----------------------------------------------
   environment.systemPackages = with pkgs; [
+    pulseaudio
+    pavucontrol
     fastfetch
     ripgrep
     wget
@@ -119,9 +163,11 @@
     spotify
     discord
     ghostty
+    foot
     neovim
     brave
     rofi
+    fuzzel
     swaybg
     waybar
     nautilus
@@ -138,7 +184,6 @@
   # --- Settings -----------------------------------------------
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.settings.allowed-users = [ "@wheel" ];
 
   # --- Maintenance --------------------------------------------
   # system.autoUpgrade = {

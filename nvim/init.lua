@@ -3,7 +3,6 @@ require("config.keymaps")
 require("config.lazy")
 
 --- Transparency ---------------
-
 -- vim.cmd [[
 --   highlight Normal guibg=none
 --   highlight NonText guibg=none
@@ -12,7 +11,6 @@ require("config.lazy")
 -- ]]
 
 --- Neovide --------------------
-
 if vim.g.neovide then
   vim.o.guifont = "Iosevka Fixed:h15"
 end
