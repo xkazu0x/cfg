@@ -11,17 +11,19 @@
 #waybar {
   background: black;
   color: #ffffff;
-  /* border: 2px solid; */
-  /* border-color: #ffffff; */
 }
 
 #workspaces,
-#clock,
-#network,
+#language,
 #pulseaudio,
+#network,
 #cpu,
 #memory {
   padding: 0.5rem 1rem;
+}
+
+#clock {
+  padding: 0.5rem;
 }
 
 #workspaces button {
@@ -41,10 +43,6 @@
 
 button {
   background: transparent;
-}
-
-button:hover {
-  background: #222222;
   box-shadow: none;
   text-shadow: none;
   transition: none;

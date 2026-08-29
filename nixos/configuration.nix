@@ -30,9 +30,16 @@
 
   # --- Display Manager ----------------------------------------
   services.xserver.enable = true;
-  services.xserver.xkb = { layout = "us"; variant = ""; };
   services.displayManager.ly.enable = true;
   services.displayManager.defaultSession = "niri";
+
+  # --- Keyboard Layout ----------------------------------------
+  services.xserver.xkb.layout = "us,br";
+  services.xserver.xkb.variant = "";
+  services.xserver.xkb.options = "grp:alt_shift_toggle";
+  environment.variables.XKB_DEFAULT_LAYOUT = config.services.xserver.xkb.layout;
+  environment.variables.XKB_DEFAULT_VARIANT = config.services.xserver.xkb.variant;
+  console.useXkbConfig = true;
 
   # --- Audio (Pipewire) ---------------------------------------
   services.pulseaudio.enable = false;
@@ -65,16 +72,10 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
-  # --- Graphics -----------------------------------------------
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages = with pkgs; [ rocmPackages.clr ];
-  };
-
   # --- Hardware (NVIDIA) --------------------------------------
   boot.initrd.kernelModules = [ "nvidia" ];
   boot.blacklistedKernelModules = [ "nouveau" ] ;
+
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
@@ -84,6 +85,13 @@
     open = true;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  # --- Graphics -----------------------------------------------
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [ rocmPackages.clr ];
   };
 
   # --- Users --------------------------------------------------
@@ -101,7 +109,7 @@
 
   # --- Packages -----------------------------------------------
   environment.systemPackages = with pkgs; [
-    pulseaudio
+    pavucontrol
     fastfetch
     ripgrep
     wget
@@ -113,30 +121,26 @@
     gcc
     clang
     gnumake
+    usbutils
     spotify
     discord
-    ghostty
     foot
+    fuzzel
     neovim
     brave
-    rofi
-    fuzzel
     swaybg
     waybar
+    grim
+    solaar
     nautilus
     xwayland-satellite
     kdePackages.kdenlive
     obs-studio
-    osu-lazer-bin
     libreoffice
     localsend
     tmux
     vlc
   ];
-
-  # --- Settings -----------------------------------------------
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # --- Maintenance --------------------------------------------
   # system.autoUpgrade = {
@@ -145,18 +149,22 @@
   #   date = "daily";
   # };
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 14d";
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
+    };
+    optimise = {
+      automatic = true;
+      dates = [ "weekly" ];
+    };
+    settings.auto-optimise-store = true;
   };
 
-  nix.optimise = {
-    automatic = true;
-    dates = [ "weekly" ];
-  };
-
-  nix.settings.auto-optimise-store = true;
+  # --- Settings -----------------------------------------------
+  nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   system.stateVersion = "26.05";
 }
