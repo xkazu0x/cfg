@@ -65,6 +65,13 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
+  # --- Graphics -----------------------------------------------
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [ rocmPackages.clr ];
+  };
+
   # --- Hardware (NVIDIA) --------------------------------------
   boot.initrd.kernelModules = [ "nvidia" ];
   boot.blacklistedKernelModules = [ "nouveau" ] ;
@@ -79,12 +86,6 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages = with pkgs; [ rocmPackages.clr ];
-  };
-
   # --- Users --------------------------------------------------
   users.users.loser = {
     isNormalUser = true;
@@ -93,62 +94,14 @@
   };
 
   # --- Fonts --------------------------------------------------
-  # nixpkgs.config = {
-  #   packageOverrides = super: let
-  #     self = super.pkgs;
-  #   in {
-  #     iosevka-misery = self.iosevka.override {
-  #       set = "Misery";
-  #       privateBuildPlan = ''
-  #         [buildPlans.IosevkaMisery]
-  #         family = "Iosevka Misery"
-  #         spacing = "normal"
-  #         serifs = "sans"
-  #         noCvSs = true
-  #         exportGlyphNames = false
-  #         noLigation = true
-  #
-  #         [buildPlans.IosevkaMisery.variants]
-  #         inherits = "ss06"
-  #
-  #         [buildPlans.IosevkaMisery.variants.design]
-  #         lig-single-arrow-bar = "without-notch"
-  #
-  #         [buildPlans.IosevkaMisery.weights.Regular]
-  #         shape = 400
-  #         menu = 400
-  #         css = 400
-  #
-  #         [buildPlans.IosevkaMisery.weights.Bold]
-  #         shape = 700
-  #         menu = 700
-  #         css = 700
-  #
-  #         [buildPlans.IosevkaMisery.weights.Light]
-  #         shape = 300
-  #         menu = 300
-  #         css = 300
-  #
-  #         [buildPlans.IosevkaMisery.slopes.Upright]
-  #         angle = 0
-  #         shape = "upright"
-  #         menu = "upright"
-  #         css = "normal"
-  #       '';
-  #     };
-  #   };
-  # };
-
   fonts.packages = with pkgs; [
     iosevka
-    # iosevka-misery
     nerd-fonts.iosevka
   ];
 
   # --- Packages -----------------------------------------------
   environment.systemPackages = with pkgs; [
     pulseaudio
-    pavucontrol
     fastfetch
     ripgrep
     wget

@@ -1,0 +1,51 @@
+* {
+  font-family: Iosevka;
+  /* font-size: 18px; */
+  font-size: 15px;
+  min-height: 0px;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+#waybar {
+  background: black;
+  color: #ffffff;
+  /* border: 2px solid; */
+  /* border-color: #ffffff; */
+}
+
+#workspaces,
+#clock,
+#network,
+#pulseaudio,
+#cpu,
+#memory {
+  padding: 0.5rem 1rem;
+}
+
+#workspaces button {
+  margin-right: 0.5rem;
+  padding: 0 0.2rem;
+  border-radius: 5px;
+  transition: all 100ms ease-in-out;
+}
+
+#workspaces button.active {
+  background: #ffffff;
+  color: #000000;
+  min-width: 3.5rem;
+  border-radius: 5px;
+  transition: all 100ms ease-in-out;
+}
+
+button {
+  background: transparent;
+}
+
+button:hover {
+  background: #222222;
+  box-shadow: none;
+  text-shadow: none;
+  transition: none;
+}
