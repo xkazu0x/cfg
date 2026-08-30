@@ -30,10 +30,28 @@ in
     gtk.enable = true;
     x11.enable = true;
   };
-  gtk.enable = true;
+
+  dconf.settings = {
+    "org/gnome/desktop/background" = {
+      picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src}";
+    };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
 
   imports = [ inputs.areofyl-fetch.homeManagerModules.default ];
   programs.fetch.enable = true;
-
-  services.udiskie.enable = true;
 }
