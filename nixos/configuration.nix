@@ -36,7 +36,7 @@
   # --- Keyboard Layout ----------------------------------------
   services.xserver.xkb.layout = "us,br";
   services.xserver.xkb.variant = "";
-  services.xserver.xkb.options = "grp:alt_shift_toggle";
+  services.xserver.xkb.options = "grp:win_shift_toggle";
   environment.variables.XKB_DEFAULT_LAYOUT = config.services.xserver.xkb.layout;
   environment.variables.XKB_DEFAULT_VARIANT = config.services.xserver.xkb.variant;
   console.useXkbConfig = true;

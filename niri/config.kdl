@@ -1,5 +1,9 @@
 input {
   keyboard {
+    xkb {
+      layout "us,br"
+      options "grp:win_space_toggle"
+    }
     repeat-rate 25
     repeat-delay 200
     numlock
@@ -52,6 +56,10 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
 
+animations {
+  slowdown 0.8
+}
+
 environment {
   ELECTRON_OZONE_PLATFORM_INIT "auto"
 }
@@ -59,6 +67,10 @@ environment {
 cursor {
   xcursor-theme "Bibata-Modern-Classic"
   xcursor-size 24
+}
+
+debug {
+  wait-for-frame-completion-before-queueing
 }
 
 window-rule {
