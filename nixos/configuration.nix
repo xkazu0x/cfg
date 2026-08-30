@@ -103,8 +103,8 @@
 
   # --- Fonts --------------------------------------------------
   fonts.packages = with pkgs; [
-    iosevka
     nerd-fonts.iosevka
+    iosevka
   ];
 
   # --- Packages -----------------------------------------------
@@ -122,6 +122,7 @@
     clang
     gnumake
     usbutils
+    gparted
     spotify
     discord
     foot
@@ -132,7 +133,10 @@
     waybar
     grim
     solaar
+    sushi
     nautilus
+    zenity
+    xdg-desktop-portal
     xwayland-satellite
     kdePackages.kdenlive
     obs-studio
@@ -142,7 +146,9 @@
     vlc
   ];
 
-  # --- Maintenance --------------------------------------------
+  # --- Settings -----------------------------------------------
+  nixpkgs.config.allowUnfree = true;
+
   # system.autoUpgrade = {
   #   enable = false;
   #   allowReboot = false;
@@ -153,18 +159,18 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 14d";
+      options = "--delete-older-than 5d";
     };
     optimise = {
       automatic = true;
       dates = [ "weekly" ];
     };
-    settings.auto-optimise-store = true;
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      warn-dirty = false;
+      auto-optimise-store = true;
+    };
   };
-
-  # --- Settings -----------------------------------------------
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   system.stateVersion = "26.05";
 }
