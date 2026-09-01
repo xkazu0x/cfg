@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -13,19 +13,19 @@
   networking.hostName = "misery";
   networking.networkmanager.enable = true;
 
-  # --- Time/Locale --------------------------------------------
+  # --- Time Zone/Locale --------------------------------------------
   time.timeZone = "America/Sao_Paulo";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+    LC_ADDRESS = config.i18n.defaultLocale;
+    LC_IDENTIFICATION = config.i18n.defaultLocale;
+    LC_MEASUREMENT = config.i18n.defaultLocale;
+    LC_MONETARY = config.i18n.defaultLocale;
+    LC_NAME = config.i18n.defaultLocale;
+    LC_NUMERIC = config.i18n.defaultLocale;
+    LC_PAPER = config.i18n.defaultLocale;
+    LC_TELEPHONE = config.i18n.defaultLocale;
+    LC_TIME = config.i18n.defaultLocale;
   };
 
   # --- Display Manager ----------------------------------------
@@ -72,43 +72,24 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
-  # services.udev.extraRules = ''
-  #   # This rule was added by Solaar.
-  #   #
-  #   # Allows non-root users to have raw access to Logitech devices.
-  #   # Allowing users to write to the device is potentially dangerous
-  #   # because they could perform firmware updates.
-  #
-  #   ACTION == "remove", GOTO="solaar_end"
-  #   SUBSYSTEM != "hidraw", GOTO="solaar_end"
-  #
-  #   # USB-connected Logitech receivers and devices
-  #   ATTRS{idVendor}=="046d", GOTO="solaar_apply"
-  #
-  #   # Lenovo nano receiver
-  #   ATTRS{idVendor}=="17ef", ATTRS{idProduct}=="6042", GOTO="solaar_apply"
-  #
-  #   # Bluetooth-connected Logitech devices
-  #   KERNELS == "0005:046D:*", GOTO="solaar_apply"
-  #
-  #   GOTO="solaar_end"
-  #
-  #   LABEL="solaar_apply"
-  #
-  #   # Allow any seated user to access the receiver.
-  #   # uaccess: modern ACL-enabled udev
-  #   TAG+="uaccess"
-  #
-  #   # Grant members of the "plugdev" group access to receiver (useful for SSH users)
-  #   #MODE="0660", GROUP="plugdev"
-  #
-  #   LABEL="solaar_end"
-  #   # vim: ft=udevrules
-  # '';
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+    package = pkgs.appimage-run.override {
+      extraPkgs = pkgs: [
+        pkgs.icu
+      ];
+    };
+  };
+
+  programs.localsend = {
+    enable = true;
+    openFirewall = true;
+  };
 
   # --- Hardware (NVIDIA) --------------------------------------
   boot.initrd.kernelModules = [ "nvidia" ];
-  boot.blacklistedKernelModules = [ "nouveau" ] ;
+  boot.blacklistedKernelModules = [ "nouveau" ];
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
@@ -118,7 +99,10 @@
     open = true;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # package = pkgs.nvidia_cachyos;
   };
+
+  # boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
   # --- Graphics -----------------------------------------------
   hardware.graphics = {
@@ -165,7 +149,6 @@
     swaybg
     waybar
     grim
-    solaar
     nautilus
     sushi
     zenity
@@ -174,9 +157,9 @@
     kdePackages.kdenlive
     obs-studio
     libreoffice
-    localsend
     tmux
     vlc
+    osu-lazer-bin
   ];
 
   # --- Settings -----------------------------------------------

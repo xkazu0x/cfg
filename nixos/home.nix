@@ -24,6 +24,7 @@ in
   }) configs;
 
   home.pointerCursor = {
+    enable = true;
     package = pkgs.bibata-cursors; # pkgs.phinger-cursors;
     name = "Bibata-Modern-Classic"; # "phinger-cursors-dark";
     size = 24;
