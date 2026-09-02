@@ -12,12 +12,9 @@
     areofyl-fetch.inputs.nixpkgs.follows = "nixpkgs";
 
     chaotic.url = "github:chaotic-cx/nyx";
-
-    stylix.url = "github:nix-community/stylix";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, chaotic, stylix, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, chaotic, ... }@inputs: {
     nixosConfigurations = {
       misery = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -35,7 +32,6 @@
             };
           }
           chaotic.nixosModules.default
-          stylix.nixosModules.stylix
         ];
       };
     };

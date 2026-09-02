@@ -87,18 +87,9 @@
     openFirewall = true;
   };
 
-  stylix = {
-    enable = true;
-    image = ./walls/mitaka-asa.jpg;
-    polarity = "dark";
-    autoEnable = false;
-    targets = {
-      gtk.enable = true;
-    };
-  };
-
   # --- Hardware --------------------------------------------------------------
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-bore;
+
   boot.initrd.kernelModules = [ "nvidia" ];
   boot.blacklistedKernelModules = [ "nouveau" ];
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -109,7 +100,7 @@
     powerManagement.finegrained = false;
     open = true;
     nvidiaSettings = true;
-    package = pkgs.nvidia_cachyos; # config.boot.kernelPackages.nvidiaPackages.stable;
+    package = pkgs.nvidia_cachyos-bore; # config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   hardware.graphics = {
@@ -176,7 +167,7 @@
     libreoffice
     tmux
     vlc
-    osu-lazer-bin
+    # osu-lazer-bin
   ];
 
   # --- Settings --------------------------------------------------------------
