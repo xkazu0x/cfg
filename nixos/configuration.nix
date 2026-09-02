@@ -5,15 +5,15 @@
     ./hardware-configuration.nix
   ];
 
-  # --- Bootloader ---------------------------------------------
+  # --- Bootloader ------------------------------------------------------------
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # --- Network ------------------------------------------------
+  # --- Network ---------------------------------------------------------------
   networking.hostName = "misery";
   networking.networkmanager.enable = true;
 
-  # --- Time Zone/Locale --------------------------------------------
+  # --- Time Zone/Locale ------------------------------------------------------
   time.timeZone = "America/Sao_Paulo";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
@@ -28,12 +28,12 @@
     LC_TIME = config.i18n.defaultLocale;
   };
 
-  # --- Display Manager ----------------------------------------
+  # --- Display Manager -------------------------------------------------------
   services.xserver.enable = true;
   services.displayManager.ly.enable = true;
   services.displayManager.defaultSession = "niri";
 
-  # --- Keyboard Layout ----------------------------------------
+  # --- Keyboard Layout -------------------------------------------------------
   services.xserver.xkb.layout = "us,br";
   services.xserver.xkb.variant = "";
   services.xserver.xkb.options = "grp:win_shift_toggle";
@@ -41,7 +41,7 @@
   environment.variables.XKB_DEFAULT_VARIANT = config.services.xserver.xkb.variant;
   console.useXkbConfig = true;
 
-  # --- Audio (Pipewire) ---------------------------------------
+  # --- Audio -----------------------------------------------------------------
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -51,7 +51,7 @@
     pulse.enable = true;
   };
 
-  # --- Program Toggles ----------------------------------------
+  # --- Program Toggles -------------------------------------------------------
   programs.steam.enable = true;
   programs.gamemode.enable = true;
   programs.dconf.enable = true;
@@ -87,7 +87,18 @@
     openFirewall = true;
   };
 
-  # --- Hardware (NVIDIA) --------------------------------------
+  stylix = {
+    enable = true;
+    image = ./walls/mitaka-asa.jpg;
+    polarity = "dark";
+    autoEnable = false;
+    targets = {
+      gtk.enable = true;
+    };
+  };
+
+  # --- Hardware --------------------------------------------------------------
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
   boot.initrd.kernelModules = [ "nvidia" ];
   boot.blacklistedKernelModules = [ "nouveau" ];
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -98,33 +109,39 @@
     powerManagement.finegrained = false;
     open = true;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-    # package = pkgs.nvidia_cachyos;
+    package = pkgs.nvidia_cachyos; # config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  # boot.kernelPackages = pkgs.linuxPackages_cachyos;
-
-  # --- Graphics -----------------------------------------------
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [ rocmPackages.clr ];
   };
 
-  # --- Users --------------------------------------------------
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 8192;
+  }];
+
+  zramSwap = {
+    enable = true;
+    memoryPercent = 50;
+  };
+
+  # --- Users -----------------------------------------------------------------
   users.users.loser = {
     isNormalUser = true;
     description = "loser";
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  # --- Fonts --------------------------------------------------
+  # --- Fonts -----------------------------------------------------------------
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka
     iosevka
   ];
 
-  # --- Packages -----------------------------------------------
+  # --- Packages --------------------------------------------------------------
   environment.systemPackages = with pkgs; [
     pavucontrol
     fastfetch
@@ -162,7 +179,7 @@
     osu-lazer-bin
   ];
 
-  # --- Settings -----------------------------------------------
+  # --- Settings --------------------------------------------------------------
   nixpkgs.config.allowUnfree = true;
 
   # system.autoUpgrade = {

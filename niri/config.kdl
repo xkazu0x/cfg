@@ -42,7 +42,7 @@ layout {
   }
 }
 
-spawn-sh-at-startup "swaybg -m fill -i ~/walls/mitaka-asa.jpg"
+spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/mitaka-asa.jpg"
 spawn-at-startup "waybar"
 
 hotkey-overlay {
