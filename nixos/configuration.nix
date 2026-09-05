@@ -88,7 +88,10 @@
   };
 
   # --- Hardware --------------------------------------------------------------
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-bore;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+
+  services.scx.enable = true;
+  services.scx.scheduler = "scx_lavd";
 
   boot.initrd.kernelModules = [ "nvidia" ];
   boot.blacklistedKernelModules = [ "nouveau" ];
@@ -100,7 +103,7 @@
     powerManagement.finegrained = false;
     open = true;
     nvidiaSettings = true;
-    package = pkgs.nvidia_cachyos-bore; # config.boot.kernelPackages.nvidiaPackages.stable;
+    package = pkgs.nvidia_cachyos; # config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   hardware.graphics = {
@@ -109,15 +112,18 @@
     extraPackages = with pkgs; [ rocmPackages.clr ];
   };
 
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 8192;
-  }];
-
   zramSwap = {
     enable = true;
+    priority = 100;
+    algorithm = "lz4";
     memoryPercent = 50;
   };
+
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 4096;
+    priority = 10;
+  }];
 
   # --- Users -----------------------------------------------------------------
   users.users.loser = {

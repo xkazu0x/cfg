@@ -91,12 +91,11 @@ window-rule {
 binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
 
-  Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
-  Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-
-  Mod+B hotkey-overlay-title="Open a Browser: brave" { spawn "brave"; }
-  Mod+E hotkey-overlay-title="Open a File Manager: nautilus" { spawn "nautilus"; }
-  Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+  Mod+Return  { spawn "foot"; }
+  Mod+D       { spawn "fuzzel"; }
+  Mod+B       { spawn "brave"; }
+  Mod+E       { spawn "nautilus"; }
+  Super+Alt+L { spawn "swaylock"; }
 
   // Example volume keys mappings for PipeWire & WirePlumber.
   // The allow-when-locked=true property makes them work even when the session is locked.
