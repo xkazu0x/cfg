@@ -140,6 +140,7 @@
 
   # --- Packages --------------------------------------------------------------
   environment.systemPackages = with pkgs; [
+    libnotify
     pavucontrol
     fastfetch
     ripgrep
@@ -162,7 +163,7 @@
     brave
     swaybg
     waybar
-    grim
+    mako
     nautilus
     sushi
     zenity

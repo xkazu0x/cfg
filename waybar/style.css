@@ -20,7 +20,7 @@ window#waybar {
 }
 
 #workspaces button.empty {
-  opacity: 0.3;
+  opacity: 0.35;
 }
 
 #workspaces button.active {
@@ -33,11 +33,11 @@ window#waybar {
 }
 
 #clock,
-#network,
-#pulseaudio,
 #language,
 #cpu,
-#memory {
+#memory,
+#network,
+#pulseaudio {
   padding: 0px 10px;
 }
 

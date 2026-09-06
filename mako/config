@@ -1,0 +1,25 @@
+background-color=#000000
+text-color=#eeeeee
+border-color=#eeeeee
+progress-color=over #eeeeee
+border-size=1
+border-radius=0
+font=Iosevka Nerd Font 15
+default-timeout=5000
+anchor=top-right
+max-visible=5
+width=320
+icons=0
+
+[urgency=low]
+border-color=#eeeeee
+
+[urgency=normal]
+border-color=#eeeeee
+
+[urgency=high]
+border-color=#eeeeee
+
+# hide specific notifications
+[summary="Wayland Diagnose"]
+invisible=1
