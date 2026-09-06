@@ -68,6 +68,7 @@
   };
 
   services.gnome.gnome-keyring.enable = true;
+  services.dbus.enable = true;
   services.dbus.packages = [ pkgs.nautilus ];
   services.gvfs.enable = true;
   services.udisks2.enable = true;
@@ -174,6 +175,7 @@
     libreoffice
     tmux
     vlc
+    kdePackages.dolphin
     # osu-lazer-bin
   ];
 

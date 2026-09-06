@@ -14,10 +14,10 @@
 
   "modules-right": [
     "niri/language",
-    "cpu",
-    "memory",
     "network",
-    "pulseaudio"
+    "pulseaudio",
+    "cpu",
+    "memory"
   ],
 
   //////////////////////////////
@@ -65,17 +65,6 @@
     "format-pt": "BR"
   },
 
-  "cpu": {
-    "interval": 5,
-    "format": "CPU {usage}%"
-  },
-
-  "memory": {
-    "interval": 5,
-    "format": "MEM {percentage}%",
-    "tooltip-format": "{used:0.1f}/{total:0.1f} GiB"
-  },
-
   "network": {
     "format-ethernet": "NET",
     "format-wifi": "NET {signalStrength}%",
@@ -89,5 +78,16 @@
     "format-muted": "MUTED",
     "tooltip-format": "{desc}",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": "CPU {usage}%"
+  },
+
+  "memory": {
+    "interval": 5,
+    "format": "MEM {percentage}%",
+    "tooltip-format": "{used:0.1f}/{total:0.1f} GiB"
   }
 }

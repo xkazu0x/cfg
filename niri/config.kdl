@@ -1,17 +1,18 @@
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
 spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/mitaka-asa.jpg"
 spawn-sh-at-startup "waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css"
 spawn-at-startup "mako"
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-prefer-no-csd
-
 environment {
-  QT_QPA_PLATFORM "wayland"
-
   XDG_SESSION_TYPE "wayland"
-  XDG_CURRENT_DESKTOP "niri"
   XDG_SESSION_DESKTOP "niri"
+  XDG_CURRENT_DESKTOP "niri"
+
+  QT_QPA_PLATFORM "wayland"
+  QT_QPA_PLATFORMTHEME "kde"
 
   ELECTRON_OZONE_PLATFORM_INIT "auto"
 }

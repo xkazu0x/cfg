@@ -34,10 +34,10 @@ window#waybar {
 
 #clock,
 #language,
-#cpu,
-#memory,
 #network,
-#pulseaudio {
+#pulseaudio,
+#cpu,
+#memory {
   padding: 0px 10px;
 }
 
