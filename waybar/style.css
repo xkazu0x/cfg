@@ -1,44 +1,44 @@
 * {
-  font-family: Iosevka;
-  /* font-size: 18px; */
-  font-size: 15px;
+  font-family: Iosevka Nerd Font;
+  font-size: 18px;
   min-height: 0px;
+  border: none;
+  border-radius: 0px;
   margin: 0px;
   padding: 0px;
-  border: 0px;
 }
 
-#waybar {
-  background: black;
-  color: #ffffff;
-}
-
-#workspaces,
-#language,
-#pulseaudio,
-#network,
-#cpu,
-#memory {
-  padding: 0.5rem 1rem;
-}
-
-#clock {
-  padding: 0.5rem;
+window#waybar {
+  background-color: #000000;
+  color: #eeeeee;
 }
 
 #workspaces button {
-  margin-right: 0.5rem;
-  padding: 0 0.2rem;
-  border-radius: 5px;
-  transition: all 100ms ease-in-out;
+  background-color: #000000;
+  color: #eeeeee;
+  padding: 0px 7px;
+}
+
+#workspaces button.empty {
+  opacity: 0.3;
 }
 
 #workspaces button.active {
-  background: #ffffff;
+  background-color: #eeeeee;
   color: #000000;
-  min-width: 3.5rem;
-  border-radius: 5px;
-  transition: all 100ms ease-in-out;
+}
+
+#window {
+  padding: 0px 5px;
+}
+
+#clock,
+#network,
+#pulseaudio,
+#language,
+#cpu,
+#memory {
+  padding: 0px 10px;
 }
 
 button {
@@ -46,4 +46,10 @@ button {
   box-shadow: none;
   text-shadow: none;
   transition: none;
+}
+
+tooltip {
+  background-color: #000000;
+  color: #eeeeee;
+  border: 1px solid #eeeeee;
 }
