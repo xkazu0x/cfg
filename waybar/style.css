@@ -1,6 +1,6 @@
 * {
   font-family: Iosevka Nerd Font;
-  font-size: 18px;
+  font-size: 20px;
   min-height: 0px;
   border: none;
   border-radius: 0px;
@@ -16,11 +16,11 @@ window#waybar {
 #workspaces button {
   background-color: #000000;
   color: #eeeeee;
-  padding: 0px 7px;
+  padding: 0px 5px;
 }
 
 #workspaces button.empty {
-  opacity: 0.35;
+  opacity: 0.25;
 }
 
 #workspaces button.active {
@@ -28,17 +28,18 @@ window#waybar {
   color: #000000;
 }
 
-#window {
-  padding: 0px 5px;
-}
-
-#clock,
-#language,
+#cpu,
+#memory,
 #network,
 #pulseaudio,
-#cpu,
-#memory {
+#language,
+#clock {
   padding: 0px 10px;
+}
+
+#network.disconnected,
+#pulseaudio.muted {
+  color: #404040;
 }
 
 button {

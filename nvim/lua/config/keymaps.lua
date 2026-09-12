@@ -1,5 +1,6 @@
 --- COMMON ------------------------------------------------------
 vim.g.mapleader = " "
+-- vim.g.maplocalleader = ","
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = true})
 vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)

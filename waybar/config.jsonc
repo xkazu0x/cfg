@@ -1,83 +1,32 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 28,
+  "height": 30,
 
   "modules-left": [
-    "niri/workspaces",
-    "niri/window"
+    "niri/workspaces"
   ],
 
   "modules-center": [
-    "clock"
   ],
 
   "modules-right": [
-    "niri/language",
+    "cpu",
+    "memory",
     "network",
     "pulseaudio",
-    "cpu",
-    "memory"
+    "niri/language",
+    "clock"
   ],
-
-  //////////////////////////////
-  // NOTE: Modules Left
 
   "niri/workspaces": {
     "format": "{index}"
   },
 
-  "niri/window": {
-    "format": "{title}",
-    "max-length": 32,
-    "separate-outputs": true
-  },
-
-  //////////////////////////////
-  // NOTE: Modules Center
-
-  "clock": {
-    "format": "{:%a %d %b %H:%M}",
-    "tooltip-format": "<tt><span font='Iosevka Nerd Font' size='18pt'><b>{calendar}</b></span></tt>",
-    "calendar": {
-      "mode": "month",
-      "mode-mon-col": 3,
-      "weeks-pos": "right",
-      "on-scroll": 1,
-      "on-click-right": "mode",
-      "format": {
-        "months": "<b>{}</b>",
-        "days": "{}",
-        "weeks": "W{}",
-        "weekdays": "<b>{}</b>",
-        "today": "<b><u>{}</u></b>"
-      }
-    },
-    "interval": 1
-  },
-
-  //////////////////////////////
-  // NOTE: Modules Right
-
   "niri/language": {
     "format": "{}",
     "format-en": "US",
     "format-pt": "BR"
-  },
-
-  "network": {
-    "format-ethernet": "NET",
-    "format-wifi": "NET {signalStrength}%",
-    "format-disconnected": "NET OFF",
-    "tooltip-format": "{ifname}  {ipaddr}/{cidr}  via {gwaddr}",
-    "tooltip-format-disconnected": "NO CONNECTION"
-  },
-
-  "pulseaudio": {
-    "format": "VOL {volume}%",
-    "format-muted": "MUTED",
-    "tooltip-format": "{desc}",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
   },
 
   "cpu": {
@@ -89,5 +38,42 @@
     "interval": 5,
     "format": "MEM {percentage}%",
     "tooltip-format": "{used:0.1f}/{total:0.1f} GiB"
+  },
+
+  "network": {
+    "interval": 5,
+    "format-wifi": "NET {signalStrength}%",
+    "format-ethernet": "NET {bandwidthDownBits}",
+    "format-disconnected": "OFFLINE",
+    "tooltip-format": "{ifname}  {ipaddr}/{cidr}  via {gwaddr}",
+    "tooltip-format-disconnected": "NO CONNECTION"
+  },
+
+  "pulseaudio": {
+    "format": "VOL {volume}%",
+    "format-muted": "MUTED",
+    "tooltip-format": "{desc}",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+
+  "clock": {
+    "interval": 1,
+    // "format": "{:%a, %b %d %H:%M}",
+    "format": "{:%Y-%m-%d %T}",
+    "tooltip-format": "<tt><span font='Iosevka Nerd Font' size='16pt'><b>{calendar}</b></span></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<b>{}</b>",
+        "weekdays": "<b>{}</b>",
+        "days": "{}",
+        "today": "<b><u>{}</u></b>",
+        "weeks": "W{}"
+      }
+    }
   }
 }

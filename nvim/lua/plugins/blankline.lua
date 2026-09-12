@@ -8,7 +8,7 @@ return {
       scope = {
         enabled = true,
         show_start = false,
-      }
+      },
     })
-  end
+  end,
 }

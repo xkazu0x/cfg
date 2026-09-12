@@ -31,7 +31,7 @@ overview {
 }
 
 animations {
-  slowdown 0.8
+  slowdown 0.5
 }
 
 debug {
@@ -112,12 +112,16 @@ hotkey-overlay {
 
 binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
+
   Mod+Return  { spawn "foot"; }
   Mod+D       { spawn "fuzzel"; }
   Mod+B       { spawn "brave"; }
   Mod+E       { spawn "nautilus"; }
   Mod+Slash   { spawn "pavucontrol"; }
   Super+Alt+L { spawn "swaylock"; }
+
+  Mod+Shift+B { spawn-sh "pkill -USR1 waybar"; }
+  Mod+Period  { spawn-sh "~/cfg/scripts/audio_sink.sh"; }
 
   XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
   XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
@@ -234,8 +238,8 @@ binds {
   Mod+BracketLeft  { consume-or-expel-window-left; }
   Mod+BracketRight { consume-or-expel-window-right; }
 
-  Mod+Comma  { consume-window-into-column; }
-  Mod+Period { expel-window-from-column; }
+  Mod+Shift+Comma  { consume-window-into-column; }
+  Mod+Shift+Period { expel-window-from-column; }
 
   Mod+R       { switch-preset-column-width; }
   Mod+Shift+R { switch-preset-column-width-back; }
