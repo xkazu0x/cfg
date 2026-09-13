@@ -4,6 +4,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/mitaka-asa.jpg"
 spawn-sh-at-startup "waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css"
+spawn-sh-at-startup "playerctld daemon"
 spawn-at-startup "mako"
 
 environment {
@@ -12,7 +13,7 @@ environment {
   XDG_CURRENT_DESKTOP "niri"
 
   QT_QPA_PLATFORM "wayland"
-  QT_QPA_PLATFORMTHEME "kde"
+  QT_QPA_PLATFORMTHEME "qt6ct"
 
   ELECTRON_OZONE_PLATFORM_INIT "auto"
 }
@@ -94,9 +95,9 @@ layout {
   gaps 10
   center-focused-column "never"
   preset-column-widths {
-    proportion 0.33333
+    proportion 0.3
     proportion 0.5
-    proportion 0.66667
+    proportion 0.7
   }
   default-column-width { proportion 0.5; }
   focus-ring {
@@ -118,22 +119,21 @@ binds {
   Mod+B       { spawn "brave"; }
   Mod+E       { spawn "nautilus"; }
   Mod+Slash   { spawn "pavucontrol"; }
-  Super+Alt+L { spawn "swaylock"; }
 
   Mod+Shift+B { spawn-sh "pkill -USR1 waybar"; }
   Mod+Period  { spawn-sh "~/cfg/scripts/audio_sink.sh"; }
 
-  XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
-  XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
-  XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-  XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+  XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
+  XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+  XF86AudioMute         allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+  XF86AudioMicMute      allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
-  XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-  XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
-  XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
-  XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+  XF86AudioPlay         allow-when-locked=true { spawn-sh "playerctl --ignore-player=brave play-pause"; }
+  XF86AudioStop         allow-when-locked=true { spawn-sh "playerctl --ignore-player=brave stop"; }
+  XF86AudioPrev         allow-when-locked=true { spawn-sh "playerctl --ignore-player=brave previous"; }
+  XF86AudioNext         allow-when-locked=true { spawn-sh "playerctl --ignore-player=brave next"; }
 
-  XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
+  XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
   XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
 
   Mod+O repeat=false { toggle-overview; }
