@@ -12,11 +12,14 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
+    powerManagement = {
+      enable = false;
+      finegrained = false;
+    };
     open = true;
     nvidiaSettings = true;
-    package = if config.kernel.cachyos.enable
+    package =
+      if config.kernel.cachyos.enable
       then pkgs.nvidia_cachyos
       else config.boot.kernelPackages.nvidiaPackages.stable;
   };

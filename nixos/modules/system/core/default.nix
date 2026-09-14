@@ -53,6 +53,19 @@
   };
   nix.optimise.automatic = true;
 
+  # --- Base Packages ---------------------------------------------------------
+  environment.systemPackages = with pkgs; [
+    vim
+    git
+    curl
+    wget
+    htop
+    btop
+    tree
+    unzip
+    fastfetch
+  ];
+
   # --- System State Version --------------------------------------------------
   system.stateVersion = "26.05";
 }

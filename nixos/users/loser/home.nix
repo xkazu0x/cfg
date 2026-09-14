@@ -37,8 +37,8 @@ in
   gtk = {
     enable = true;
     theme = {
-      name    = "Adwaita-dark";
-      package = pkgs.gnome-themes-extra;
+      name    = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
     };
     iconTheme = {
       name    = "Papirus-Dark";

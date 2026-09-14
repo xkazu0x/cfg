@@ -45,6 +45,34 @@
   services.displayManager.ly.enable = true;
   services.displayManager.defaultSession = "niri";
 
+  # --- Fonts -----------------------------------------------------------------
+  fonts.packages = with pkgs; [ iosevka nerd-fonts.iosevka ];
+
+  # --- System Packages -------------------------------------------------------
+  environment.systemPackages = with pkgs; with kdePackages; [
+    gh
+    dust
+    procs
+    p7zip
+    pulseaudio
+
+    ripgrep
+    neovim
+    tmux
+    gcc
+    clang
+    gnumake
+
+    brave
+    spotify
+    discord
+    obs-studio
+    libreoffice
+    kdenlive
+    inkscape
+    vlc
+  ];
+
   # --- Programs --------------------------------------------------------------
   programs.appimage = {
     enable = true;
@@ -60,54 +88,4 @@
     enable = true;
     openFirewall = true;
   };
-
-  # --- Fonts -----------------------------------------------------------------
-  fonts.packages = with pkgs; [
-    iosevka
-    nerd-fonts.iosevka
-  ];
-
-  # --- System Packages -------------------------------------------------------
-  environment.systemPackages = with pkgs; with kdePackages; [
-    git
-    gh
-    curl
-    wget
-    htop
-    btop
-    unzip
-    tree
-    dust
-    fastfetch
-
-    foot
-    fuzzel
-    waybar
-    swaybg
-    libnotify
-    mako
-    nautilus
-    sushi
-    xwayland-satellite
-    pavucontrol
-    playerctl
-
-    pulseaudio
-
-    neovim
-    ripgrep
-    tmux
-    gcc
-    clang
-    gnumake
-
-    brave
-    spotify
-    discord
-    obs-studio
-    libreoffice
-    kdenlive
-    inkscape
-    vlc
-  ];
 }

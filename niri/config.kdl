@@ -115,10 +115,9 @@ binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
 
   Mod+Return  { spawn "foot"; }
-  Mod+D       { spawn "fuzzel"; }
   Mod+B       { spawn "brave"; }
+  Mod+D       { spawn "fuzzel"; }
   Mod+E       { spawn "nautilus"; }
-  Mod+Slash   { spawn "pavucontrol"; }
 
   Mod+Shift+B { spawn-sh "pkill -USR1 waybar"; }
   Mod+Period  { spawn-sh "~/cfg/scripts/audio_sink.sh"; }
