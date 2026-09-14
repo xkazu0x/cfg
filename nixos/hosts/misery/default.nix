@@ -54,6 +54,7 @@
     dust
     procs
     p7zip
+    cmatrix
     pulseaudio
 
     ripgrep

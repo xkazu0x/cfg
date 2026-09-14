@@ -10,6 +10,9 @@
   services.dbus.enable = true;
   services.dbus.packages = [ pkgs.dconf ];
 
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
+
   programs.niri.enable = true;
   programs.xwayland.enable = true;
 
@@ -22,6 +25,8 @@
 
   environment.systemPackages = with pkgs; [
     foot
+    grim
+    slurp
     fuzzel
     waybar
     swaybg
@@ -36,7 +41,4 @@
     mako
     xwayland-satellite
   ];
-
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.login.enableGnomeKeyring = true;
 }
