@@ -14,7 +14,7 @@
 
   outputs = { self, ... }@inputs:
   let
-    mkHost = hostname: user:
+    mkHost = hostname:
     inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -30,7 +30,7 @@
             overwriteBackup = true;
             backupFileExtension = "hm.bak";
             extraSpecialArgs = { inherit inputs; };
-            users.${user} = import ./users/${user}/home.nix;
+            users.loser = import ./users/loser/home.nix;
           };
         }
       ];
@@ -38,7 +38,7 @@
   in
   {
     nixosConfigurations = {
-      misery = mkHost "misery" "loser";
+      misery = mkHost "misery";
     };
   };
 }

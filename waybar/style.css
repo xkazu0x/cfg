@@ -1,6 +1,6 @@
 * {
   font-family: Iosevka Nerd Font;
-  font-size: 20px;
+  font-size: 18px;
   min-height: 0px;
   border: none;
   border-radius: 0px;
@@ -9,14 +9,14 @@
 }
 
 window#waybar {
-  background-color: #000000;
   color: #eeeeee;
+  background: #000000;
 }
 
 #workspaces button {
-  background-color: #000000;
   color: #eeeeee;
-  padding: 0px 5px;
+  background: #000000;
+  padding: 0px 4px;
 }
 
 #workspaces button.empty {
@@ -24,8 +24,8 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background-color: #eeeeee;
   color: #000000;
+  background: #eeeeee;
 }
 
 #cpu,
@@ -37,11 +37,6 @@ window#waybar {
   padding: 0px 10px;
 }
 
-#network.disconnected,
-#pulseaudio.muted {
-  color: #404040;
-}
-
 button {
   background: transparent;
   box-shadow: none;
@@ -50,7 +45,7 @@ button {
 }
 
 tooltip {
-  background-color: #000000;
   color: #eeeeee;
+  background: #000000;
   border: 1px solid #eeeeee;
 }

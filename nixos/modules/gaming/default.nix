@@ -17,7 +17,7 @@
       };
       # gpu = {
       #   apply_gpu_optimisations = "accept-responsibility";
-      #   gpu_device = 0;
+      #   pu_device = 0;
       #   softrealtime = "auto";
       # };
       custom = {

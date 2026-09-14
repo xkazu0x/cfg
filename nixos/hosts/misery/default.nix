@@ -5,14 +5,16 @@
     ./hardware-configuration.nix
     ../../modules/system/core/default.nix
     ../../modules/system/kernel/default.nix
-    ../../modules/hardware/driver/default.nix
+    ../../modules/hardware/nvidia/default.nix
     ../../modules/compositor/niri/default.nix
     ../../modules/gaming/default.nix
   ];
 
+  # --- Kernel ----------------------------------------------------------------
   kernel.cachyos.enable = false;
-  hardware.gpu = "nvidia";
+  kernel.cachyos.variant = "lts";
 
+  # --- Swap ------------------------------------------------------------------
   zramSwap = {
     enable = true;
     priority = 100;
@@ -26,6 +28,7 @@
     priority = 10;
   }];
 
+  # --- User Account ----------------------------------------------------------
   users.users.loser = {
     isNormalUser = true;
     extraGroups = [
@@ -38,9 +41,11 @@
     ];
   };
 
+  # --- Display Manager -------------------------------------------------------
   services.displayManager.ly.enable = true;
   services.displayManager.defaultSession = "niri";
 
+  # --- Programs --------------------------------------------------------------
   programs.appimage = {
     enable = true;
     binfmt = true;
@@ -56,8 +61,13 @@
     openFirewall = true;
   };
 
-  fonts.packages = with pkgs; [ iosevka nerd-fonts.iosevka ];
+  # --- Fonts -----------------------------------------------------------------
+  fonts.packages = with pkgs; [
+    iosevka
+    nerd-fonts.iosevka
+  ];
 
+  # --- System Packages -------------------------------------------------------
   environment.systemPackages = with pkgs; with kdePackages; [
     git
     gh
@@ -79,10 +89,10 @@
     nautilus
     sushi
     xwayland-satellite
-
-    pulseaudio
     pavucontrol
     playerctl
+
+    pulseaudio
 
     neovim
     ripgrep
