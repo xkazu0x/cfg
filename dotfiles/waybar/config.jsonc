@@ -42,11 +42,11 @@
   },
 
   "network": {
-    "interval": 5,
-    "format-wifi": "NET {essid}",
-    "format-ethernet": "NET {bandwidthDownBits}",
-    "format-disconnected": "<span color='#505050'>DISCONNECTED</span>",
-    "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
+    // "interval": 5,
+    "format-wifi": "{essid}",
+    "format-ethernet": "{ipaddr}/{cidr}",
+    "format-disconnected": "<span color='#505050'>OFFLINE</span>",
+    "tooltip-format": "{ifname} via {gwaddr}",
     "tooltip-format-disconnected": "NO CONNECTION",
     "on-click": "foot nmtui"
   },

@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }:
 
 let
-  dotfiles = "${config.home.homeDirectory}/cfg";
+  dotfiles = "${config.home.homeDirectory}/cfg/dotfiles";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     foot = "foot";

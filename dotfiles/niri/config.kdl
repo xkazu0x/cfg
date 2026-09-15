@@ -119,8 +119,8 @@ binds {
   Mod+D       { spawn "fuzzel"; }
   Mod+E       { spawn "nautilus"; }
 
-  Mod+S       { spawn-sh "/home/loser/cfg/scripts/snip.sh"; }
-  Mod+Period  { spawn-sh "/home/loser/cfg/scripts/audio_sink.sh"; }
+  Mod+S       { spawn-sh "~/cfg/scripts/snip.sh"; }
+  Mod+Period  { spawn-sh "~/cfg/scripts/audio_sink.sh"; }
 
   Mod+Shift+B { spawn-sh "pkill -USR1 waybar"; }
 

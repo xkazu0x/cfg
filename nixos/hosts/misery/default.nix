@@ -57,6 +57,9 @@
     cmatrix
     pulseaudio
 
+    ffmpeg
+    ranger
+
     ripgrep
     neovim
     tmux
