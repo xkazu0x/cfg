@@ -3,7 +3,9 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 spawn-sh-at-startup "waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css"
-spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/mitaka-asa.jpg"
+// spawn-sh-at-startup "swaybg -c 000000"
+// spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/mitaka-asa.jpg"
+spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/latenight.jpg"
 spawn-sh-at-startup "playerctld daemon"
 spawn-at-startup "mako"
 
@@ -20,7 +22,7 @@ environment {
 
 cursor {
   xcursor-theme "Bibata-Modern-Classic"
-  xcursor-size 24
+  xcursor-size 22
 }
 
 overview {
@@ -62,9 +64,9 @@ window-rule {
 
 window-rule {
   draw-border-with-background false
-  background-effect {
-    blur true
-  }
+  // background-effect {
+  //   blur true
+  // }
 }
 
 input {
@@ -92,7 +94,7 @@ output "HDMI-A-1" {
 }
 
 layout {
-  gaps 10
+  gaps 0//10
   center-focused-column "never"
   preset-column-widths {
     proportion 0.3
@@ -101,7 +103,7 @@ layout {
   }
   default-column-width { proportion 0.5; }
   focus-ring {
-    width 3
+    width 0//3
     active-color "#eeeeee"
     inactive-color "#202020"
   }
@@ -118,10 +120,9 @@ binds {
   Mod+B       { spawn "brave"; }
   Mod+D       { spawn "fuzzel"; }
   Mod+E       { spawn "nautilus"; }
-
   Mod+S       { spawn-sh "~/cfg/scripts/snip.sh"; }
-  Mod+Period  { spawn-sh "~/cfg/scripts/audio_sink.sh"; }
-
+  Mod+P       { spawn-sh "~/cfg/scripts/powermenu.sh"; }
+  Mod+A       { spawn-sh "~/cfg/scripts/audio_select.sh"; }
   Mod+Shift+B { spawn-sh "pkill -USR1 waybar"; }
 
   XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
@@ -157,13 +158,6 @@ binds {
   Mod+Shift+J     { move-window-down; }
   Mod+Shift+K     { move-window-up; }
   Mod+Shift+L     { move-column-right; }
-
-  // Alternative commands that move across workspaces when reaching
-  // the first or last window in a column.
-  // Mod+J      { focus-window-or-workspace-down; }
-  // Mod+K      { focus-window-or-workspace-up; }
-  // Mod+Ctrl+J { move-window-down-or-to-workspace-down; }
-  // Mod+Ctrl+K { move-window-up-or-to-workspace-up; }
 
   Mod+Home      { focus-column-first; }
   Mod+End       { focus-column-last; }
@@ -239,8 +233,8 @@ binds {
   Mod+BracketLeft  { consume-or-expel-window-left; }
   Mod+BracketRight { consume-or-expel-window-right; }
 
-  Mod+Shift+Comma  { consume-window-into-column; }
-  Mod+Shift+Period { expel-window-from-column; }
+  Mod+Comma  { consume-window-into-column; }
+  Mod+Period { expel-window-from-column; }
 
   Mod+R       { switch-preset-column-width; }
   Mod+Shift+R { switch-preset-column-width-back; }

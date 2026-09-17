@@ -5,7 +5,7 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    gamescopeSession.enable = true;
+    extraCompatPackages = with pkgs; [ proton-ge-custom proton-cachyos ];
   };
 
   programs.gamemode = {
@@ -17,8 +17,7 @@
       };
       # gpu = {
       #   apply_gpu_optimisations = "accept-responsibility";
-      #   pu_device = 0;
-      #   softrealtime = "auto";
+      #   gpu_device = 0;
       # };
       custom = {
         start = "${pkgs.libnotify}/bin/notify-send 'GameMode' 'Optimizations applied'";
@@ -28,11 +27,20 @@
   };
 
   environment.systemPackages = with pkgs; [
+    wine-staging
+    winetricks
+    protontricks
+
     gamemode
+    mangohud
+
     gamescope
     gamescope-wsi
+
     vulkan-tools
     mesa-demos
+
+    umu-launcher
     steam-run
   ];
 

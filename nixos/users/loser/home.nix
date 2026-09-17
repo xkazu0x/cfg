@@ -29,7 +29,7 @@ in
     enable     = true;
     name       = "Bibata-Modern-Classic";
     package    = pkgs.bibata-cursors;
-    size       = 24;
+    size       = 22;
     gtk.enable = true;
     x11.enable = true;
   };
@@ -47,7 +47,7 @@ in
     cursorTheme = {
       name    = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
-      size    = 24;
+      size    = 22;
     };
     gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
     gtk4 = {
@@ -61,7 +61,7 @@ in
   dconf.settings."org/gnome/desktop/interface" = {
     color-scheme = "prefer-dark";
     cursor-theme = "Bibata-Modern-Classic";
-    cursor-size  = 24;
+    cursor-size  = 22;
   };
 
   dconf.settings."org/gnome/desktop/wm/preferences" = {

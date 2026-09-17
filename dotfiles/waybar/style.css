@@ -28,6 +28,10 @@ window#waybar {
   background: #eeeeee;
 }
 
+#window {
+  margin-left: 5px;
+}
+
 #cpu,
 #memory,
 #network,
@@ -47,5 +51,4 @@ button {
 tooltip {
   color: #eeeeee;
   background: #000000;
-  border: 1px solid #eeeeee;
 }

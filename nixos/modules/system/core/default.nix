@@ -2,28 +2,47 @@
 
 {
   # --- Boot ------------------------------------------------------------------
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 10;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
+  boot = {
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+      };
+      efi.canTouchEfiVariables = true;
+    };
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
+  };
 
   # --- Network ---------------------------------------------------------------
-  networking.networkmanager.enable = true;
-  networking.firewall.enable = true;
+  networking = {
+    networkmanager.enable = true;
+    firewall.enable = true;
+  };
+
+  # --- SSH Daemon ------------------------------------------------------------
+  # services.openssh = {
+  #   enable = true;
+  #   settings = {
+  #     PermitRootLogin = "no";
+  #     # PasswordAuthentication = false;
+  #   };
+  # };
 
   # --- Time & Locale ---------------------------------------------------------
   time.timeZone = "America/Sao_Paulo";
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
   };
 
   # --- Audio -----------------------------------------------------------------
@@ -39,19 +58,25 @@
 
   # --- Nix Settings ----------------------------------------------------------
   nixpkgs.config.allowUnfree = true;
-  nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    trusted-users = [ "root" "@wheel" ];
-    max-jobs = 2;
-    cores = 0;
-    warn-dirty = false;
+
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      trusted-users = [ "root" "@wheel" ];
+      warn-dirty = false;
+      max-jobs = 2;
+      cores = 0;
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+    optimise.automatic = true;
   };
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-  nix.optimise.automatic = true;
+
+  # --- Fonts -----------------------------------------------------------------
+  fonts.packages = with pkgs; [ iosevka nerd-fonts.iosevka ];
 
   # --- Base Packages ---------------------------------------------------------
   environment.systemPackages = with pkgs; [

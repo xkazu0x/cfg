@@ -11,8 +11,10 @@
   ];
 
   # --- Kernel ----------------------------------------------------------------
-  kernel.cachyos.enable = false;
-  kernel.cachyos.variant = "lts";
+  kernel.cachyos = {
+    enable = false;
+    variant = "lts";
+  };
 
   # --- Swap ------------------------------------------------------------------
   zramSwap = {
@@ -42,23 +44,32 @@
   };
 
   # --- Display Manager -------------------------------------------------------
-  services.displayManager.ly.enable = true;
-  services.displayManager.defaultSession = "niri";
+  services.displayManager = {
+    ly.enable = true;
+    defaultSession = "niri";
+  };
 
-  # --- Fonts -----------------------------------------------------------------
-  fonts.packages = with pkgs; [ iosevka nerd-fonts.iosevka ];
+  # --- Programs --------------------------------------------------------------
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+    package = pkgs.appimage-run.override {
+      extraPkgs = pkgs: [
+        pkgs.icu
+      ];
+    };
+  };
+
+  programs.localsend = {
+    enable = true;
+    openFirewall = true;
+  };
 
   # --- System Packages -------------------------------------------------------
   environment.systemPackages = with pkgs; with kdePackages; [
     gh
-    dust
-    procs
-    p7zip
     cmatrix
     pulseaudio
-
-    ffmpeg
-    ranger
 
     ripgrep
     neovim
@@ -76,20 +87,4 @@
     inkscape
     vlc
   ];
-
-  # --- Programs --------------------------------------------------------------
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-    package = pkgs.appimage-run.override {
-      extraPkgs = pkgs: [
-        pkgs.icu
-      ];
-    };
-  };
-
-  programs.localsend = {
-    enable = true;
-    openFirewall = true;
-  };
 }
