@@ -11,7 +11,7 @@ sinks=$(pactl list sinks | awk '
   }
 ')
 
-selection=$(echo "$sinks" | fuzzel --dmenu -w 50)
+selection=$(echo "$sinks" | fuzzel --dmenu -w 40 --lines "$((${#sinks[@]} + 1))")
 [ -z "$selection" ] && exit 0
 
 sink_name=$(echo "$selection" | sed -n 's/.*(\(.*\))$/\1/p')

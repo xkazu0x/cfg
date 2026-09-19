@@ -32,12 +32,12 @@ window#waybar {
   margin-left: 5px;
 }
 
+#clock,
 #cpu,
 #memory,
 #network,
 #pulseaudio,
-#language,
-#clock {
+#language {
   padding: 0px 10px;
 }
 

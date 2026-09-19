@@ -67,16 +67,17 @@
 
   # --- System Packages -------------------------------------------------------
   environment.systemPackages = with pkgs; with kdePackages; [
-    gh
-    cmatrix
     pulseaudio
+    cmatrix
 
-    ripgrep
-    neovim
-    tmux
+    gh
     gcc
     clang
     gnumake
+    ripgrep
+    neovim
+    tmux
+    nnn
 
     brave
     spotify
