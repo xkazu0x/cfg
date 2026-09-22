@@ -14,7 +14,7 @@
 
   outputs = { self, ... }@inputs:
   let
-    mkHost = { system, host, user }:
+    mkSystem = { system, host, user }:
     inputs.nixpkgs.lib.nixosSystem {
       system = system;
       specialArgs = { inherit inputs; };
