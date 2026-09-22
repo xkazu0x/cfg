@@ -5,8 +5,7 @@
   "height": 28,
 
   "modules-left": [
-    "niri/workspaces",
-    "niri/window"
+    "niri/workspaces"
   ],
 
   "modules-center": [
@@ -14,21 +13,16 @@
   ],
 
   "modules-right": [
-    "cpu",
-    "memory",
-    "network",
+    "niri/language",
     "pulseaudio",
-    "niri/language"
+    "cpu",
+    "custom/gpu",
+    "memory",
+    "network"
   ],
 
   "niri/workspaces": {
     "format": "{index}"
-  },
-
-  "niri/window": {
-    "format": "{title}",
-    "max-length": 80,
-    "separate-outputs": true
   },
 
   "clock": {
@@ -53,13 +47,22 @@
 
   "cpu": {
     "interval": 5,
-    "format": "CPU {usage}%"
+    "format": "CPU {usage}%",
+    "on-click": "foot btop"
+  },
+
+  "custom/gpu": {
+    "interval": 5,
+    "exec": "~/cfg/scripts/gpu_usage.sh",
+    "format": "GPU {}%",
+    "on-click": "foot nvtop"
   },
 
   "memory": {
     "interval": 5,
     "format": "MEM {percentage}%",
-    "tooltip-format": "{used:0.1f}/{total:0.1f} GiB"
+    "tooltip-format": "{used:0.1f}/{total:0.1f} GiB",
+    "on-click": "foot btop"
   },
 
   "network": {

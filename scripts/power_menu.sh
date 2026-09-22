@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-selection=$(cat <<EOF | fuzzel --dmenu --lines 3
+selection=$(cat <<EOF | fuzzel --dmenu
 Shutdown
 Reboot
 Logout

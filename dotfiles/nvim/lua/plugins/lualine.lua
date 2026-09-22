@@ -1,13 +1,13 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "echasnovski/mini.icons" },
   config = function()
     require("lualine").setup({
       options = {
-        icons_enabled = false,
         theme = "auto",
-        component_separators = "",
+        globalstatus = false,
+        icons_enabled = false,
         section_separators = "",
+        component_separators = "",
       },
       sections = {
         lualine_a = { "mode" },

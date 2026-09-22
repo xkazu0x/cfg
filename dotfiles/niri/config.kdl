@@ -1,14 +1,5 @@
 prefer-no-csd
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-spawn-sh-at-startup "waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css"
-// spawn-sh-at-startup "swaybg -c 000000"
-// spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/mitaka-asa.jpg"
-spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/latenight.jpg"
-spawn-sh-at-startup "playerctld daemon"
-spawn-at-startup "mako"
-
 environment {
   TERMINAL "foot"
   EDITOR "nvim"
@@ -48,19 +39,21 @@ workspace "1"
 workspace "2"
 
 window-rule {
+  match app-id="pavucontrol"
+  default-column-width  { proportion 0.4; }
+  default-window-height { proportion 0.6; }
+  open-floating true
+}
+
+window-rule {
   match app-id="brave-browser"
   match app-id="steam"
   open-maximized true
 }
 
 window-rule {
-  match app-id="discord"
-  open-on-workspace "2"
-  open-maximized true
-}
-
-window-rule {
   match app-id="Spotify"
+  match app-id="discord"
   open-on-workspace "2"
   open-maximized true
 }
@@ -76,7 +69,7 @@ input {
   keyboard {
     xkb {
       layout "us,br"
-      options "grp:win_space_toggle"
+      options "grp:alt_shift_toggle"
     }
     repeat-rate 25
     repeat-delay 200
@@ -86,7 +79,6 @@ input {
     accel-speed 0.15
     accel-profile "flat"
   }
-  focus-follows-mouse max-scroll-amount="0%"
 }
 
 output "HDMI-A-1" {
@@ -112,21 +104,33 @@ layout {
   }
 }
 
+spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/mitaka-asa.jpg"
+spawn-sh-at-startup "wl-clip-persist --clipboard regular"
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
+spawn-sh-at-startup "playerctld daemon"
+spawn-sh-at-startup "waybar"
+spawn-at-startup "mako"
+
 hotkey-overlay {
   skip-at-startup
 }
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
 
   Mod+Return  { spawn "foot"; }
-  Mod+B       { spawn "brave"; }
   Mod+D       { spawn "fuzzel"; }
   Mod+E       { spawn "nautilus"; }
-  Mod+S       { spawn-sh "~/cfg/scripts/snip.sh"; }
-  Mod+A       { spawn-sh "~/cfg/scripts/audiomenu.sh"; }
-  Mod+Grave   { spawn-sh "~/cfg/scripts/powermenu.sh"; }
+  Mod+B       { spawn "brave"; }
+  Mod+P       { spawn-sh "brave --incognito"; }
   Mod+Shift+W { spawn-sh "pkill -USR1 waybar"; }
+  Mod+S       { spawn-sh "~/cfg/scripts/snip.sh"; }
+  Mod+Grave   { spawn-sh "~/cfg/scripts/power_menu.sh"; }
+  Mod+A       { spawn-sh "~/cfg/scripts/audio_menu.sh"; }
+  Mod+V       { spawn-sh "~/cfg/scripts/clipboard_menu.sh"; }
 
   XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
   XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
@@ -260,8 +264,8 @@ binds {
   Mod+Shift+Minus { set-window-height "-10%"; }
   Mod+Shift+Equal { set-window-height "+10%"; }
 
-  Mod+V       { toggle-window-floating; }
-  Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+  Mod+Space       { toggle-window-floating; }
+  Mod+Shift+Space { switch-focus-between-floating-and-tiling; }
 
   Print      { screenshot; }
   Ctrl+Print { screenshot-screen; }

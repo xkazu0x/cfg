@@ -14,31 +14,34 @@
 
   outputs = { self, ... }@inputs:
   let
-    mkHost = hostname:
+    mkHost = { system, host, user }:
     inputs.nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      system = system;
       specialArgs = { inherit inputs; };
       modules = [
-        ./hosts/${hostname}
+        ./hosts/${host}/default.nix
+        ./modules/users/${user}/default.nix
         inputs.chaotic.nixosModules.default
         inputs.home-manager.nixosModules.home-manager
         {
-          networking.hostName = hostname;
+          networking.hostName = host;
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             overwriteBackup = true;
             backupFileExtension = "hm.bak";
             extraSpecialArgs = { inherit inputs; };
-            users.loser = import ./users/loser/home.nix;
+            users.${user} = import ./users/${user}/home.nix;
           };
         }
       ];
     };
   in
   {
-    nixosConfigurations = {
-      misery = mkHost "misery";
+    nixosConfigurations.misery = mkSystem {
+      system = "x86_64-linux";
+      host = "misery";
+      user = "loser";
     };
   };
 }
