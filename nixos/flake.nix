@@ -1,5 +1,5 @@
 {
-  description = "Misery Flake";
+  description = "lastdayonearth";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -14,7 +14,7 @@
 
   outputs = { self, ... }@inputs:
   let
-    mkSystem = { system, host, user }:
+    system_make = { system, host, user }:
     inputs.nixpkgs.lib.nixosSystem {
       system = system;
       specialArgs = { inherit inputs; };
@@ -38,7 +38,7 @@
     };
   in
   {
-    nixosConfigurations.misery = mkSystem {
+    nixosConfigurations.misery = system_make {
       system = "x86_64-linux";
       host = "misery";
       user = "loser";

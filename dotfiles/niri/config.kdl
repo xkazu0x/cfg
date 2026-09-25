@@ -98,9 +98,11 @@ layout {
   }
   default-column-width { proportion 0.5; }
   focus-ring {
-    width 0//3
-    active-color "#eeeeee"
-    inactive-color "#202020"
+    width 3
+    // active-color "#e0e0e0"
+    // active-color "#202020"
+    active-color "#606060"
+    inactive-color "#101010"
   }
 }
 

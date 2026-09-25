@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
 
+shutdown="SHUTDOWN"
+reboot="REBOOT"
+logout="LOGOUT"
+
 selection=$(cat <<EOF | fuzzel --dmenu
-Shutdown
-Reboot
-Logout
+$shutdown
+$reboot
+$logout
 EOF
 )
 
 case "$selection" in
-  *"Shutdown")
+  *"$shutdown")
     shutdown now ;;
-  *"Reboot")
+  *"$reboot")
     reboot ;;
-  *"Logout")
+  *"$logout")
     niri msg action quit ;;
 esac

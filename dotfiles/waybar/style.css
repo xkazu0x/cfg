@@ -1,3 +1,7 @@
+/* @define-color fg #eeeeee; */
+@define-color fg #e0e0e0;
+@define-color bg #000000;
+
 * {
   font-family: Iosevka Nerd Font;
   font-size: 18px;
@@ -9,13 +13,13 @@
 }
 
 window#waybar {
-  color: #eeeeee;
-  background: #000000;
+  color: @fg;
+  background: @bg;
 }
 
 #workspaces button {
-  color: #eeeeee;
-  background: #000000;
+  color: @fg;
+  background: @bg;
   padding: 0px 4px;
 }
 
@@ -24,21 +28,21 @@ window#waybar {
 }
 
 #workspaces button.active {
-  color: #000000;
-  background: #eeeeee;
+  color: @bg;
+  background: @fg;
 }
 
 #window {
   margin-left: 5px;
 }
 
-#clock,
+#language,
+#pulseaudio,
 #cpu,
 #custom-gpu,
 #memory,
 #network,
-#pulseaudio,
-#language {
+#clock {
   padding: 0px 10px;
 }
 
@@ -50,6 +54,9 @@ button {
 }
 
 tooltip {
-  color: #eeeeee;
-  background: #000000;
+  background: @bg;
+}
+
+tooltip label {
+  color: @fg;
 }

@@ -2,14 +2,14 @@
 
 let
   dotfiles = "${config.home.homeDirectory}/cfg/dotfiles";
-  create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
+  symlink_make = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
-    foot = "foot";
+    foot   = "foot";
     fuzzel = "fuzzel";
-    mako = "mako";
-    niri = "niri";
-    nvim = "nvim";
-    tmux = "tmux";
+    mako   = "mako";
+    niri   = "niri";
+    nvim   = "nvim";
+    tmux   = "tmux";
     waybar = "waybar";
   };
 in
@@ -20,9 +20,9 @@ in
   ];
 
   # --- Home Manager ----------------------------------------------------------
-  home.username = "loser";
+  home.username      = "loser";
   home.homeDirectory = "/home/loser";
-  home.stateVersion = "26.05";
+  home.stateVersion  = "26.05";
 
   # --- Theme -----------------------------------------------------------------
   home.pointerCursor = {
@@ -84,15 +84,15 @@ in
     setSessionVariables = true; # Silence HM 26.05 default change warning
 
     documents = "${config.home.homeDirectory}/Documents";
-    download = "${config.home.homeDirectory}/Downloads";
-    music = "${config.home.homeDirectory}/Music";
-    pictures = "${config.home.homeDirectory}/Pictures";
-    videos = "${config.home.homeDirectory}/Videos";
+    download  = "${config.home.homeDirectory}/Downloads";
+    music     = "${config.home.homeDirectory}/Music";
+    pictures  = "${config.home.homeDirectory}/Pictures";
+    videos    = "${config.home.homeDirectory}/Videos";
   };
 
   # --- Dotfiles --------------------------------------------------------------
   xdg.configFile = builtins.mapAttrs (name: subpath: {
-    source = create_symlink "${dotfiles}/${subpath}";
+    source = symlink_make "${dotfiles}/${subpath}";
     recursive = true;
   }) configs;
 

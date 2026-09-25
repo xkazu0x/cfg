@@ -1,8 +1,8 @@
 font=Iosevka Nerd Font 15
 background-color=#000000
-text-color=#eeeeee
-border-color=#eeeeee
-progress-color=over #eeeeee
+text-color=#e0e0e0
+border-color=#e0e0e0
+progress-color=over #e0e0e0
 border-size=0
 border-radius=0
 default-timeout=5000
@@ -12,10 +12,10 @@ width=320
 icons=0
 
 [urgency=low]
-border-color=#eeeeee
+border-color=#e0e0e0
 
 [urgency=normal]
-border-color=#eeeeee
+border-color=#e0e0e0
 
 [urgency=high]
-border-color=#eeeeee
+border-color=#e0e0e0

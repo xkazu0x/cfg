@@ -12,13 +12,11 @@
   networking.firewall.enable = true;
 
   # --- SSH Daemon ------------------------------------------------------------
-  # services.openssh = {
-  #   enable = true;
-  #   settings = {
-  #     PermitRootLogin = "no";
-  #     # PasswordAuthentication = false;
-  #   };
-  # };
+  services.openssh.enable = true;
+  services.openssh.settings = {
+    PasswordAuthentication = true;
+    PermitRootLogin = "no";
+  };
 
 # --- Time & Locale ---------------------------------------------------------
   time.timeZone = "America/Sao_Paulo";
@@ -68,7 +66,7 @@
   # --- Fonts -----------------------------------------------------------------
   fonts.packages = with pkgs; [ iosevka nerd-fonts.iosevka ];
 
-  # --- Base Packages ---------------------------------------------------------
+  # --- Core Packages ---------------------------------------------------------
   environment.systemPackages = with pkgs; [
     vim
     git
