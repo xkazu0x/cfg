@@ -10,9 +10,6 @@
   services.dbus.enable = true;
   services.dbus.packages = [ pkgs.dconf ];
 
-  services.displayManager.ly.enable = true;
-  services.displayManager.defaultSession = "niri";
-
   programs.niri.enable = true;
   programs.xwayland.enable = true;
 

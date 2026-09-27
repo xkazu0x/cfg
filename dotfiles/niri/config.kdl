@@ -59,10 +59,15 @@ window-rule {
 }
 
 window-rule {
+  match is-active=false
+  opacity 0.90
+}
+
+window-rule {
   draw-border-with-background false
-  // background-effect {
-  //   blur true
-  // }
+  background-effect {
+    blur true
+  }
 }
 
 input {
@@ -98,7 +103,7 @@ layout {
   }
   default-column-width { proportion 0.5; }
   focus-ring {
-    width 3
+    width 0//3
     // active-color "#e0e0e0"
     // active-color "#202020"
     active-color "#606060"

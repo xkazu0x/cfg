@@ -32,10 +32,7 @@ window#waybar {
   background: @fg;
 }
 
-#window {
-  margin-left: 5px;
-}
-
+#tray,
 #language,
 #pulseaudio,
 #cpu,

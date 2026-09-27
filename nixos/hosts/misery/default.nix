@@ -5,9 +5,14 @@
     ./hardware-configuration.nix
     ../../modules/system/core/default.nix
     ../../modules/hardware/nvidia/default.nix
-    ../../modules/compositors/niri/default.nix
+    ../../modules/wm/niri/default.nix
+    # ../../modules/wm/oxwm/default.nix
     ../../modules/gaming/default.nix
   ];
+
+  # --- Display Manager -------------------------------------------------------
+  services.displayManager.ly.enable = true;
+  services.displayManager.defaultSession = "niri";
 
   # --- Swap ------------------------------------------------------------------
   zramSwap = {

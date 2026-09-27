@@ -12,6 +12,7 @@
   ],
 
   "modules-right": [
+    "tray",
     "niri/language",
     "pulseaudio",
     "cpu",
@@ -23,6 +24,11 @@
 
   "niri/workspaces": {
     "format": "{index}"
+  },
+
+  "tray": {
+    "spacing": 10,
+    "icon-size": 24
   },
 
   "niri/language": {
