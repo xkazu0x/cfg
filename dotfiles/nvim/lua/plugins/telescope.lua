@@ -22,7 +22,6 @@ return {
         layout_config = {
           prompt_position = "top",
           anchor = "CENTER",
-          preview_width = 0.63,
         },
         border = {
           prompt = { 1, 1, 1, 1 },
