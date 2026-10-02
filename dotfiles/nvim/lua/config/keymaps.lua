@@ -23,41 +23,38 @@ vim.keymap.set({"n", "v"}, "J", "}")
 vim.keymap.set({"n", "v"}, "K", "{")
 vim.keymap.set({"n", "v"}, "L", "e")
 
+-- Jumping --------------------------------------------------------------------
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-f>", "<C-f>zz")
 vim.keymap.set("n", "<C-b>", "<C-b>zz")
 
--- Jumping --------------------------------------------------------------------
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+-- Buffer ---------------------------------------------------------------------
+vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>")
+vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>")
 
--- Buffer Navigation ----------------------------------------------------------
-vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", {desc = "Next Buffer"})
-vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", {desc = "Previous Buffer"})
-
--- Window Navigation ----------------------------------------------------------
+-- Window ---------------------------------------------------------------------
 vim.keymap.set("n", "<leader>h", "<C-w>h")
 vim.keymap.set("n", "<leader>j", "<C-w>j")
 vim.keymap.set("n", "<leader>k", "<C-w>k")
 vim.keymap.set("n", "<leader>l", "<C-w>l")
 
--- Window Position ------------------------------------------------------------
 vim.keymap.set("n", "<leader>H", "<C-w>H")
 vim.keymap.set("n", "<leader>J", "<C-w>J")
 vim.keymap.set("n", "<leader>K", "<C-w>K")
 vim.keymap.set("n", "<leader>L", "<C-w>L")
 
--- Window Resizing ------------------------------------------------------------
 vim.keymap.set("n", "_", "<cmd>vertical resize -2<CR>")
 vim.keymap.set("n", "+", "<cmd>vertical resize +2<CR>")
 vim.keymap.set("n", "<C-_>", "<cmd>resize -2<CR>")
 vim.keymap.set("n", "<C-+>", "<cmd>resize +2<CR>")
 
--- Visual Mode Indenting ------------------------------------------------------
+-- Visual Mode ----------------------------------------------------------------
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
--- Visual Mode Shifting -------------------------------------------------------
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
