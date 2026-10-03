@@ -5,8 +5,7 @@
     ./hardware-configuration.nix
     ../../modules/system/core/default.nix
     ../../modules/hardware/nvidia/default.nix
-    ../../modules/wm/niri/default.nix
-    # ../../modules/wm/oxwm/default.nix
+    ../../modules/compositors/niri/default.nix
     ../../modules/gaming/default.nix
   ];
 
@@ -51,22 +50,24 @@
     cmatrix
     jq
 
-    gh
     gcc
+    gnumake
     clang
     clang-tools
-    gnumake
+    nodejs
+
     ripgrep
     neovim
     tmux
+    gh
 
     brave
     spotify
     discord
-    obs-studio
-    libreoffice
     kdenlive
     inkscape
+    obs-studio
+    libreoffice
     vlc
   ];
 }

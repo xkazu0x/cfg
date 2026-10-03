@@ -6,12 +6,12 @@ vim.keymap.set("n", "<leader>w", vim.cmd.w)
 vim.keymap.set("n", "<leader>o", vim.cmd.so)
 vim.keymap.set("n", "<leader>Q", vim.cmd.qa)
 
---- Helpers -------------------------------------------------------------------
+-- Helpers --------------------------------------------------------------------
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-W>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", {silent = true})
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
---- Movement ------------------------------------------------------------------
+-- Movement -------------------------------------------------------------------
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", {expr = true, silent = true})
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", {expr = true, silent = true})
 

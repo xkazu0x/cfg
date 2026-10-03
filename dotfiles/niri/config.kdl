@@ -58,10 +58,10 @@ window-rule {
   open-maximized true
 }
 
-window-rule {
-  match is-active=false
-  opacity 0.90
-}
+// window-rule {
+//   match is-active=false
+//   opacity 0.90
+// }
 
 window-rule {
   draw-border-with-background false

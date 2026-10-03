@@ -24,16 +24,14 @@ vim.opt.cinoptions = "l1,t0"
 vim.opt.grepprg = "rg --vimgrep"
 vim.opt.grepformat = "%f:%l:%c:%m" -- filename, line number, column content
 
--- Search Settings ------------------------------------------------------------
+-- Search ---------------------------------------------------------------------
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
--- Visual Settings ------------------------------------------------------------
+-- Visual ---------------------------------------------------------------------
 vim.opt.termguicolors = true
-vim.opt.showmatch = true
-vim.opt.matchtime = 2
 vim.opt.completeopt = "menuone,noinsert,noselect"
 vim.opt.showmode = false
 vim.opt.pumheight = 10
@@ -64,8 +62,3 @@ vim.opt.mouse = "a"
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.modifiable = true
 vim.opt.encoding = "UTF-8"
-vim.opt.wildmenu = true
-vim.opt.wildmode = "longest:full,full"
-vim.opt.wildignorecase = true
-vim.opt.splitbelow = true
-vim.opt.splitright = true

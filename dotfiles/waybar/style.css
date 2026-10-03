@@ -32,6 +32,10 @@ window#waybar {
   background: @fg;
 }
 
+#window {
+  padding: 0px 5px;
+}
+
 #tray,
 #language,
 #pulseaudio,

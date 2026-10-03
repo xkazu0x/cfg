@@ -5,7 +5,8 @@
   "height": 28,
 
   "modules-left": [
-    "niri/workspaces"
+    "niri/workspaces",
+    "niri/window"
   ],
 
   "modules-center": [
@@ -15,9 +16,9 @@
     "tray",
     "niri/language",
     "pulseaudio",
-    "cpu",
-    "custom/gpu",
-    "memory",
+    // "cpu",
+    // "custom/gpu",
+    // "memory",
     "network",
     "clock"
   ],
@@ -26,15 +27,21 @@
     "format": "{index}"
   },
 
-  "tray": {
-    "spacing": 10,
-    "icon-size": 24
+  "niri/window": {
+    "format": "{title}",
+    "max-length": 256,
+    "separate-outputs": true
   },
 
   "niri/language": {
     "format": "{}",
     "format-en": "US",
     "format-pt": "BR"
+  },
+
+  "tray": {
+    "spacing": 10,
+    "icon-size": 24
   },
 
   "pulseaudio": {
