@@ -63,12 +63,12 @@ window-rule {
 //   opacity 0.90
 // }
 
-window-rule {
-  draw-border-with-background false
-  background-effect {
-    blur true
-  }
-}
+// window-rule {
+//   draw-border-with-background false
+//   background-effect {
+//     blur true
+//   }
+// }
 
 input {
   keyboard {
@@ -104,19 +104,17 @@ layout {
   default-column-width { proportion 0.5; }
   focus-ring {
     width 0//3
-    // active-color "#e0e0e0"
-    // active-color "#202020"
-    active-color "#606060"
-    inactive-color "#101010"
+    active-color "#303030"
+    inactive-color "#202020"
   }
 }
 
 spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/mitaka-asa.jpg"
+spawn-sh-at-startup "waybar"
 spawn-sh-at-startup "wl-clip-persist --clipboard regular"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 spawn-sh-at-startup "playerctld daemon"
-spawn-sh-at-startup "waybar"
 spawn-at-startup "mako"
 
 hotkey-overlay {
