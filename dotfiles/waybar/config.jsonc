@@ -14,13 +14,13 @@
 
   "modules-right": [
     "tray",
-    "niri/language",
-    "pulseaudio",
-    "network",
-    "clock"
     // "cpu",
     // "custom/gpu",
-    // "memory",
+    "memory",
+    "network",
+    "pulseaudio",
+    "niri/language",
+    "clock"
   ],
 
   "niri/workspaces": {
@@ -44,14 +44,6 @@
     "icon-size": 18
   },
 
-  "pulseaudio": {
-    "format": "VOL {volume}%",
-    "format-muted": "<span color='#404040'>MUTED</span>",
-    "tooltip-format": "{desc}",
-    "on-click": "pavucontrol",
-    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-  },
-
   "cpu": {
     "interval": 5,
     "format": "CPU {usage}%",
@@ -67,18 +59,26 @@
 
   "memory": {
     "interval": 5,
-    "format": "MEM {percentage}%",
-    "tooltip-format": "{used:0.1f}/{total:0.1f} GiB",
+    "format": "MEM {used:1.0f}G/{total:1.0f}G",
+    "tooltip-format": "MEM {percentage}%",
     "on-click": "foot btop"
   },
 
   "network": {
-    "format-wifi": "{essid}",
-    "format-ethernet": "{ipaddr}/{cidr}",
+    "format-wifi": "ONLINE",
+    "format-ethernet": "ONLINE",
     "format-disconnected": "<span color='#404040'>OFFLINE</span>",
-    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
     "tooltip-format-disconnected": "NO CONNECTION",
     "on-click": "foot nmtui"
+  },
+
+  "pulseaudio": {
+    "format": "VOL {volume}%",
+    "format-muted": "<span color='#404040'>MUTED</span>",
+    "tooltip-format": "{desc}",
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
   },
 
   "clock": {

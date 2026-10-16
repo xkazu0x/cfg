@@ -19,22 +19,6 @@ cursor {
   xcursor-size 22
 }
 
-overview {
-  zoom 0.5
-  backdrop-color "#101010"
-  workspace-shadow {
-    off
-  }
-}
-
-animations {
-  slowdown 0.5
-}
-
-debug {
-  wait-for-frame-completion-before-queueing
-}
-
 workspace "1"
 workspace "2"
 
@@ -58,17 +42,27 @@ window-rule {
   open-maximized true
 }
 
-// window-rule {
-//   match is-active=false
-//   opacity 0.90
-// }
+gestures {
+  hot-corners {
+    off
+  }
+}
 
-// window-rule {
-//   draw-border-with-background false
-//   background-effect {
-//     blur true
-//   }
-// }
+overview {
+  zoom 0.5
+  backdrop-color "#101010"
+  workspace-shadow {
+    off
+  }
+}
+
+animations {
+  slowdown 0.5
+}
+
+debug {
+  wait-for-frame-completion-before-queueing
+}
 
 input {
   keyboard {
@@ -94,7 +88,13 @@ output "HDMI-A-1" {
 }
 
 layout {
-  gaps 10
+  gaps 6
+  struts {
+    left -3
+    right -3
+    top -3
+    bottom -3
+  }
   center-focused-column "never"
   preset-column-widths {
     proportion 0.3
@@ -103,13 +103,16 @@ layout {
   }
   default-column-width { proportion 0.5; }
   focus-ring {
-    width 0//3
-    active-color "#303030"
+    width 3
+    active-color "#e0e0e0"
     inactive-color "#202020"
   }
 }
 
-spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/mitaka-asa.jpg"
+// spawn-sh-at-startup "swaybg -c 000000"
+// spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/mitaka-asa.jpg"
+// spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/late-night.jpg"
+spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/wallhaven-mlo32k.jpg"
 spawn-sh-at-startup "waybar"
 spawn-sh-at-startup "wl-clip-persist --clipboard regular"
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
@@ -131,7 +134,6 @@ binds {
   Mod+E       { spawn "nautilus"; }
   Mod+B       { spawn "brave"; }
   Mod+P       { spawn-sh "brave --incognito"; }
-  Mod+Shift+W { spawn-sh "pkill -USR1 waybar"; }
   Mod+S       { spawn-sh "~/cfg/scripts/snip.sh"; }
   Mod+Grave   { spawn-sh "~/cfg/scripts/power_menu.sh"; }
   Mod+A       { spawn-sh "~/cfg/scripts/audio_menu.sh"; }

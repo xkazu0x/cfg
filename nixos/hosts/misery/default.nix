@@ -61,13 +61,18 @@
     tmux
     gh
 
+    showtime # GNOME video player
+    loupe    # GNOME image viewer
+    papers   # GNOME document viewer
+
+    vlc
     brave
+    librewolf
     spotify
     discord
     kdenlive
     inkscape
     obs-studio
     libreoffice
-    vlc
   ];
 }

@@ -1,6 +1,6 @@
 -- Basics ---------------------------------------------------------------------
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {noremap = true, silent = true})
-vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
+-- vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>q", vim.cmd.q)
 vim.keymap.set("n", "<leader>w", vim.cmd.w)
 vim.keymap.set("n", "<leader>o", vim.cmd.so)
@@ -58,3 +58,6 @@ vim.keymap.set("v", ">", ">gv")
 
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
+
+-- Plugins --------------------------------------------------------------------
+vim.keymap.set("n", "<leader>cd", "<cmd>Oil<CR>")
