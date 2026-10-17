@@ -1,0 +1,101 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "source": "~/.config/fastfetch/nixos_unfilled.txt",
+    "type": "auto",
+    "padding": {
+      "top": 0,
+      "left": 0,
+      "right": 3
+    }
+  },
+  "display": {
+    "separator": ""
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": ""
+    },
+    // {
+    //   "type": "title",
+    //   "format": "────── {1}@{2} ──────────────────────────"
+    // },
+    {
+      "type": "custom",
+      "format": ""
+    },
+
+    {
+      "type": "os",
+      "key": "OS     ",
+      "keyColor": "38;5;240"
+    },
+    {
+      "type": "kernel",
+      "key": "KERNEL ",
+      "keyColor": "38;5;240"
+    },
+    {
+      "type": "uptime",
+      "key": "UPTIME ",
+      "keyColor": "38;5;240"
+    },
+    {
+      "type": "packages",
+      "key": "PKGS   ",
+      "keyColor": "38;5;240"
+    },
+
+    {
+      "type": "cpu",
+      "key": "CPU    ",
+      "keyColor": "38;5;240"
+    },
+    {
+      "type": "gpu",
+      "key": "GPU    ",
+      "keyColor": "38;5;240"
+    },
+    {
+      "type": "memory",
+      "key": "MEM    ",
+      "keyColor": "38;5;240"
+    },
+    {
+      "type": "swap",
+      "key": "SWAP   ",
+      "keyColor": "38;5;240"
+    },
+    {
+      "type": "disk",
+      "key": "DISK   ",
+      "keyColor": "38;5;240"
+    },
+
+    // "title",
+    // "separator",
+    // "os",
+    // "kernel",
+    // "packages",
+    // "host",
+    // "shell",
+    // "display",
+    // "de",
+    // "wm",
+    // "wmtheme",
+    // "theme",
+    // "icons",
+    // "font",
+    // "cursor",
+    // "terminal",
+    // "terminalfont",
+
+    // "battery",
+    // "poweradapter",
+    // "localip",
+    // "locale",
+    // "break",
+    // "colors"
+  ]
+}
