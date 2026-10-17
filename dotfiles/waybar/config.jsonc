@@ -17,6 +17,7 @@
     // "cpu",
     // "custom/gpu",
     "memory",
+    "disk",
     "network",
     "pulseaudio",
     "niri/language",
@@ -59,9 +60,17 @@
 
   "memory": {
     "interval": 5,
-    "format": "MEM {used:1.0f}G/{total:1.0f}G",
+    "format": "MEM {used:0.0f}G/{total:0.0f}G",
     "tooltip-format": "MEM {percentage}%",
     "on-click": "foot btop"
+  },
+
+  "disk": {
+    "interval": 30,
+    "format": "DISK {specific_used:0.0f}G/{specific_total:0.0f}G",
+    "unit": "GiB",
+    "path": "/",
+    "tooltip-format": "{path} ({percentage_used}%) {specific_free:0.0f}G FREE"
   },
 
   "network": {

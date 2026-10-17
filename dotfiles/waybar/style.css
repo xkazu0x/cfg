@@ -37,12 +37,13 @@ window#waybar {
 }
 
 #tray,
-#language,
-#pulseaudio,
 #cpu,
 #custom-gpu,
 #memory,
+#disk,
 #network,
+#pulseaudio,
+#language,
 #clock {
   padding: 0px 10px;
 }
