@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -21,7 +21,7 @@
       modules = [
         ./hosts/${host}/default.nix
         ./modules/users/${user}/default.nix
-        inputs.chaotic.nixosModules.default
+        # inputs.chaotic.nixosModules.default
         inputs.home-manager.nixosModules.home-manager
         {
           networking.hostName = host;

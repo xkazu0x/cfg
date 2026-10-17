@@ -4,13 +4,14 @@ let
   dotfiles = "${config.home.homeDirectory}/cfg/dotfiles";
   symlink_make = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
-    foot   = "foot";
-    fuzzel = "fuzzel";
-    mako   = "mako";
-    niri   = "niri";
-    nvim   = "nvim";
-    tmux   = "tmux";
-    waybar = "waybar";
+    fastfetch = "fastfetch";
+    foot      = "foot";
+    fuzzel    = "fuzzel";
+    mako      = "mako";
+    niri      = "niri";
+    nvim      = "nvim";
+    tmux      = "tmux";
+    waybar    = "waybar";
   };
 in
 

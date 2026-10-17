@@ -5,7 +5,7 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    extraCompatPackages = with pkgs; [ proton-ge-custom proton-cachyos ];
+    # extraCompatPackages = [ pkgs.proton-ge-bin pkgs.proton-cachyos ];
   };
 
   programs.gamemode = {
