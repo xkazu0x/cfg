@@ -56,10 +56,11 @@
     clang-tools
     nodejs
 
-    ripgrep
-    neovim
-    tmux
     gh
+    tmux
+    neovim
+    ripgrep
+    lazygit
 
     showtime # GNOME video player
     loupe    # GNOME image viewer
@@ -67,7 +68,6 @@
 
     vlc
     brave
-    librewolf
     spotify
     discord
     kdenlive
