@@ -45,10 +45,7 @@
 
   # --- System Packages -------------------------------------------------------
   environment.systemPackages = with pkgs; with kdePackages; [
-    nvtopPackages.nvidia
     pulseaudio
-    cmatrix
-    jq
 
     gcc
     gnumake

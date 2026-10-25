@@ -15,7 +15,6 @@
   "modules-right": [
     "tray",
     // "cpu",
-    // "custom/gpu",
     "memory",
     // "disk",
     "network",

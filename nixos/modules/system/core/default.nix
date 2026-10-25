@@ -5,7 +5,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
+  # boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
 
   # --- Network ---------------------------------------------------------------
   networking.networkmanager.enable = true;
