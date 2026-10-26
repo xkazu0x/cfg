@@ -98,18 +98,7 @@ in
   }) configs;
 
   # --- Programs --------------------------------------------------------------
-  programs.home-manager.enable = true;
   programs.fetch.enable = true;
-
-  programs.git = {
-    enable = true;
-    signing.format = null; # Silence HM 25.05 default change warning (no signing configured)
-    settings = {
-      user.name = "xkazu0x";
-      user.email = "kazuooficial@hotmail.com";
-      init.defaultBranch = "master";
-    };
-  };
-
   services.ssh-agent.enable = true;
+  programs.home-manager.enable = true;
 }
