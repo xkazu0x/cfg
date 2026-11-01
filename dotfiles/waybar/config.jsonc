@@ -14,7 +14,7 @@
 
   "modules-right": [
     "tray",
-    // "cpu",
+    "cpu",
     "memory",
     // "disk",
     "network",
@@ -50,26 +50,23 @@
     "on-click": "foot btop"
   },
 
-  "custom/gpu": {
-    "interval": 5,
-    "exec": "~/cfg/scripts/gpu_usage.sh",
-    "format": "GPU {}%",
-    "on-click": "foot nvtop"
-  },
-
   "memory": {
     "interval": 5,
-    "format": "MEM {used:0.0f}G/{total:0.0f}G",
-    "tooltip-format": "MEM {percentage}%",
+    // "format": "MEM {used:0.0f}G/{total:0.0f}G",
+    // "tooltip-format": "MEM {percentage}%",
+    "format": "MEM {percentage}%",
+    "tooltip-format": "MEM {used:0.1f}G/{total:0.1f}G",
     "on-click": "foot btop"
   },
 
   "disk": {
     "interval": 30,
-    "format": "DISK {specific_used:0.0f}G/{specific_total:0.0f}G",
+    // "format": "DISK {specific_used:0.0f}G/{specific_total:0.0f}G",
+    "format": "{path} {percentage_used}%",
     "unit": "GiB",
     "path": "/",
-    "tooltip-format": "{path} ({percentage_used}%) {specific_free:0.0f}G FREE"
+    // "tooltip-format": "{path} ({percentage_used}%) {specific_free:0.0f}G FREE"
+    "tooltip-format": "{path} {specific_used:0.1f}G/{specific_total:0.1f}G"
   },
 
   "network": {

@@ -22,7 +22,6 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/${host}/default.nix
-        ./modules/users/${user}/default.nix
         # inputs.chaotic.nixosModules.default
         inputs.home-manager.nixosModules.home-manager
         {

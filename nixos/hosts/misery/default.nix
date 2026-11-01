@@ -43,6 +43,8 @@
     openFirewall = true;
   };
 
+  virtualisation.docker.enable = true;
+
   # --- System Packages -------------------------------------------------------
   environment.systemPackages = with pkgs; with kdePackages; [
     pulseaudio
@@ -52,6 +54,8 @@
     clang
     clang-tools
     nodejs
+    jdk21_headless
+    jetbrains.idea
 
     gh
     tmux
@@ -59,17 +63,30 @@
     ripgrep
     lazygit
 
-    showtime # GNOME video player
-    loupe    # GNOME image viewer
-    papers   # GNOME document viewer
-
-    vlc
     brave
     spotify
     discord
     kdenlive
-    inkscape
     obs-studio
     libreoffice
+    showtime # GNOME video player
+    gapless  # Music Player
+    papers   # GNOME document viewer
+    loupe    # GNOME image viewer
+    vlc
   ];
+
+  # --- User Account ----------------------------------------------------------
+  users.users.loser = {
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "video"
+      "audio"
+      "input"
+      "gamemode"
+      "docker"
+    ];
+  };
 }
