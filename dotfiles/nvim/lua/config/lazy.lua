@@ -18,5 +18,11 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
+  rtp = {
+    disabled_plugins = {
+      "netrw",
+      "netrwPlugin",
+    },
+  },
   change_detection = { notify = false },
 })

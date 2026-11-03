@@ -61,3 +61,5 @@ vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
 -- Plugins --------------------------------------------------------------------
 vim.keymap.set("n", "<leader>cd", "<cmd>Oil<CR>")
+vim.keymap.set("n", "<leader>m", "<cmd>NvimTreeFocus<CR>")
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")

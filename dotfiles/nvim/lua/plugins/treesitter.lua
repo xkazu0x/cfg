@@ -7,11 +7,15 @@ return {
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
         "c",
+        "cpp",
         "lua",
-        "bash",
-        "javascript",
-        "html",
+        "vim",
         "css",
+        "html",
+        "java",
+        "bash",
+        "markdown",
+        "javascript",
       },
       sync_install = true,
       auto_install = true,
@@ -19,7 +23,9 @@ return {
         enable = true,
         additional_vim_regex_highlighting = false,
       },
-      indent = { enable = false },
+      indent = {
+        enable = false
+      },
     })
   end,
 }

@@ -44,6 +44,7 @@
   };
 
   virtualisation.docker.enable = true;
+  programs.nix-ld.enable = true;
 
   # --- System Packages -------------------------------------------------------
   environment.systemPackages = with pkgs; with kdePackages; [
