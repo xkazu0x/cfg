@@ -32,7 +32,7 @@
             overwriteBackup = true;
             backupFileExtension = "hm.bak";
             extraSpecialArgs = { inherit inputs; };
-            users.${user} = import ./users/${user}/home.nix;
+            users.${user} = import ./modules/users/${user}/home/default.nix;
           };
         }
       ];

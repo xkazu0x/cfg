@@ -100,18 +100,11 @@ in
   # --- Programs --------------------------------------------------------------
   programs.home-manager.enable = true;
   programs.fetch.enable = true;
+  programs.bash.enable = true;
 
-  programs.zsh = {
+  programs.zoxide = {
     enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    plugins = [
-      {
-        name = "fast-syntax-highlighting";
-        src = pkgs.zsh-fast-syntax-highlighting;
-        file = "share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh";
-      }
-    ];
+    enableBashIntegration = true;
   };
 
   services.ssh-agent.enable = true;

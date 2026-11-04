@@ -58,6 +58,7 @@
     jetbrains.idea
 
     gh
+    nnn
     tmux
     neovim
     ripgrep
@@ -69,6 +70,7 @@
     spotify
     discord
     kdenlive
+    inkscape
     obs-studio
     libreoffice
     showtime # GNOME video player
@@ -90,7 +92,5 @@
       "gamemode"
       "docker"
     ];
-    shell = pkgs.zsh;
   };
-  programs.zsh.enable = true;
 }
