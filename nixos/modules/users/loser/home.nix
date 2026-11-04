@@ -98,7 +98,21 @@ in
   }) configs;
 
   # --- Programs --------------------------------------------------------------
-  programs.fetch.enable = true;
-  services.ssh-agent.enable = true;
   programs.home-manager.enable = true;
+  programs.fetch.enable = true;
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    plugins = [
+      {
+        name = "fast-syntax-highlighting";
+        src = pkgs.zsh-fast-syntax-highlighting;
+        file = "share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh";
+      }
+    ];
+  };
+
+  services.ssh-agent.enable = true;
 }

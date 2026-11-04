@@ -62,6 +62,8 @@
     neovim
     ripgrep
     lazygit
+    hurl
+    jq
 
     brave
     spotify
@@ -88,5 +90,7 @@
       "gamemode"
       "docker"
     ];
+    shell = pkgs.zsh;
   };
+  programs.zsh.enable = true;
 }
