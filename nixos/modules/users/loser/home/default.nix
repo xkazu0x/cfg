@@ -101,7 +101,18 @@ in
   # --- Programs --------------------------------------------------------------
   programs.home-manager.enable = true;
   programs.fetch.enable = true;
+
   programs.bash.enable = true;
+
+  programs.git = {
+    enable = true;
+    settings.alias = {
+      st = "status";
+      co = "checkout";
+      br = "branch";
+      lg = "log --oneline --graph --decorate";
+    };
+  };
 
   programs.zoxide = {
     enable = true;
