@@ -7,6 +7,7 @@ let
     fastfetch = "fastfetch";
     foot      = "foot";
     fuzzel    = "fuzzel";
+    kitty     = "kitty";
     mako      = "mako";
     niri      = "niri";
     nvim      = "nvim";

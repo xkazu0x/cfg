@@ -48,6 +48,7 @@
   # --- System Packages -------------------------------------------------------
   environment.systemPackages = with pkgs; with kdePackages; [
     pulseaudio
+    cmatrix
 
     gcc
     gnumake
@@ -63,6 +64,7 @@
     neovim
     ripgrep
     lazygit
+    kitty
     hurl
     jq
 

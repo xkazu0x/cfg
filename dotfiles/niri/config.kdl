@@ -1,7 +1,7 @@
 prefer-no-csd
 
 environment {
-  TERMINAL "foot"
+  TERMINAL "kitty"
   EDITOR "nvim"
 
   XDG_SESSION_TYPE "wayland"
@@ -109,9 +109,6 @@ layout {
   }
 }
 
-// spawn-sh-at-startup "swaybg -c 000000"
-// spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/mitaka-asa.jpg"
-// spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/late-night.jpg"
 spawn-sh-at-startup "swaybg -m fill -i ~/cfg/walls/wallhaven-mlo32k.jpg"
 spawn-sh-at-startup "waybar"
 spawn-sh-at-startup "wl-clip-persist --clipboard regular"
@@ -129,7 +126,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
 
-  Mod+Return  { spawn "foot"; }
+  Mod+Return  { spawn "kitty"; }
   Mod+D       { spawn "fuzzel"; }
   Mod+E       { spawn "nautilus"; }
   Mod+B       { spawn "brave"; }
