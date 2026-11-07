@@ -102,7 +102,14 @@ in
   programs.home-manager.enable = true;
   programs.fetch.enable = true;
 
-  programs.bash.enable = true;
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      nrf = "sudo nixos-rebuild switch --flake";
+      nr = "sudo nixos-rebuild switch";
+      lg = "lazygit";
+    };
+  };
 
   programs.git = {
     enable = true;
