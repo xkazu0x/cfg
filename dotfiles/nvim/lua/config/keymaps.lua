@@ -52,6 +52,14 @@ vim.keymap.set("n", "+", "<cmd>vertical resize +2<CR>")
 vim.keymap.set("n", "<C-_>", "<cmd>resize -2<CR>")
 vim.keymap.set("n", "<C-+>", "<cmd>resize +2<CR>")
 
+-- Tab ------------------------------------------------------------------------
+vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>")
+vim.keymap.set("n", "<leader>td", "<cmd>tabclose<CR>")
+vim.keymap.set("n", "<leader>tj", "<cmd>tabprev<CR>")
+vim.keymap.set("n", "<leader>tk", "<cmd>tabnext<CR>")
+vim.keymap.set("n", "<leader>th", "<cmd>tabfirst<CR>")
+vim.keymap.set("n", "<leader>tl", "<cmd>tablast<CR>")
+
 -- Visual Mode ----------------------------------------------------------------
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
@@ -63,3 +71,4 @@ vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<leader>cd", "<cmd>Oil<CR>")
 vim.keymap.set("n", "<leader>m", "<cmd>NvimTreeFocus<CR>")
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>D", "<cmd>DBUIToggle<CR>");

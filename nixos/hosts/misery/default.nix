@@ -55,11 +55,14 @@
     clang
     clang-tools
     nodejs
-    jdk21_headless
+
     jetbrains.idea
+    jdt-language-server
+    jdk21_headless
+    postgresql
+    maven
 
     gh
-    nnn
     tmux
     neovim
     ripgrep
