@@ -43,6 +43,11 @@
     openFirewall = true;
   };
 
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk21_headless;
+  };
+
   virtualisation.docker.enable = true;
 
   # --- System Packages -------------------------------------------------------
@@ -60,6 +65,7 @@
     jdt-language-server
     jdk21_headless
     postgresql
+    lombok
     maven
 
     gh

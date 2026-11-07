@@ -10,6 +10,7 @@ return {
         "cpp",
         "lua",
         "vim",
+        "sql",
         "css",
         "html",
         "java",
