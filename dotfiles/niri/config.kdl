@@ -127,10 +127,11 @@ binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
 
   Mod+Return  { spawn "kitty"; }
+  Mod+B       { spawn "brave"; }
   Mod+D       { spawn "fuzzel"; }
   Mod+E       { spawn "nautilus"; }
-  Mod+B       { spawn "brave"; }
   Mod+P       { spawn-sh "brave --incognito"; }
+  Mod+Shift+D { spawn-sh "~/cfg/scripts/exec.sh"; }
   Mod+S       { spawn-sh "~/cfg/scripts/snip.sh"; }
   Mod+Grave   { spawn-sh "~/cfg/scripts/power_menu.sh"; }
   Mod+A       { spawn-sh "~/cfg/scripts/audio_menu.sh"; }

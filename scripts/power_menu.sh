@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-shutdown="SHUTDOWN"
-reboot="REBOOT"
-logout="LOGOUT"
+shutdown="Shutdown"
+reboot="Reboot"
+logout="Logout"
 
-selection=$(cat <<EOF | fuzzel --dmenu
+selection=$(cat <<EOF | fuzzel --dmenu --lines=3
 $shutdown
 $reboot
 $logout
