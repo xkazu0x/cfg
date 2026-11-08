@@ -56,8 +56,8 @@
     cmatrix
 
     gcc
-    gnumake
     clang
+    gnumake
     clang-tools
     nodejs
 

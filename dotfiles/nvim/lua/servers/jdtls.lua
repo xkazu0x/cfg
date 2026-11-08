@@ -1,4 +1,4 @@
-return function(lspconfig, on_attach)
+return function(lspconfig, on_attach, capabilities)
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "java",
     callback = function(args)
@@ -10,6 +10,7 @@ return function(lspconfig, on_attach)
 
       local config = {
         on_attach = on_attach,
+        capabilities = capabilities,
         cmd = { vim.fn.exepath("jdtls"), "-data", workspace_dir },
         cmd_env = { JAVA_TOOL_OPTIONS = "-javaagent:" .. lombok_path },
         root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew", "pom.xml" }),

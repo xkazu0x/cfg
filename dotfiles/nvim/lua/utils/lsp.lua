@@ -20,7 +20,7 @@ M.on_attach = function(client, bufnr)
   km("n", "<leader>gr", "<cmd>Fzf lsp_references<CR>", opts)
   km("n", "<leader>gt", "<cmd>Fzf lsp_typedefs<CR>", opts)
   km("n", "<leader>ds", "<cmd>Fzf lsp_document_symbols<CR>", opts)
-  km("n", "<leader>ws", "<cmd>Fzf lsp_workspace_symbols<CR>", opts)
+  -- km("n", "<leader>ws", "<cmd>Fzf lsp_workspace_symbols<CR>", opts)
   km("n", "<leader>gi", "<cmd>Fzf lsp_implementations<CR>", opts)
 
   -- Jdtls

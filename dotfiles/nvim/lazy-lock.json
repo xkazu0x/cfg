@@ -1,7 +1,9 @@
 {
   "black-metal-theme-neovim": { "branch": "main", "commit": "14f15d89956a4cd9da3a40cb36982e6e1fa5a4f4" },
+  "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
   "compile-mode.nvim": { "branch": "main", "commit": "0c91728af9e8433ec1beb99f51e6264df7ab3ee6" },
   "flash.nvim": { "branch": "main", "commit": "5f0f270fdc7c5b0c21d903ee85b9cb06f2ac636a" },
+  "friendly-snippets": { "branch": "main", "commit": "b2ea5c41a150ba72fb656eedb4ed0a86d138d945" },
   "fzf-lua": { "branch": "main", "commit": "bea6a134d2228a7766debd61dedb301c69b57e16" },
   "indent-blankline.nvim": { "branch": "master", "commit": "f1e186e44d3b7f9ae918008e2c28ce37c6023d2d" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
