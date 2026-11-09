@@ -10,8 +10,11 @@
     home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    areofyl-fetch.url = "github:areofyl/fetch";
-    areofyl-fetch.inputs.nixpkgs.follows = "nixpkgs";
+    fetch.url = "github:areofyl/fetch";
+    fetch.inputs.nixpkgs.follows = "nixpkgs";
+
+    helium.url = "github:schembriaiden/helium-browser-nix-flake";
+    helium.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, ... }@inputs:

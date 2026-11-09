@@ -17,10 +17,6 @@
       "type": "custom",
       "format": ""
     },
-    // {
-    //   "type": "title",
-    //   "format": "────── {1}@{2} ──────────────────────────"
-    // },
     {
       "type": "custom",
       "format": ""
@@ -46,7 +42,6 @@
       "key": "PKGS   ",
       "keyColor": "38;5;240"
     },
-
     {
       "type": "cpu",
       "key": "CPU    ",
@@ -71,31 +66,6 @@
       "type": "disk",
       "key": "DISK   ",
       "keyColor": "38;5;240"
-    },
-
-    // "title",
-    // "separator",
-    // "os",
-    // "kernel",
-    // "packages",
-    // "host",
-    // "shell",
-    // "display",
-    // "de",
-    // "wm",
-    // "wmtheme",
-    // "theme",
-    // "icons",
-    // "font",
-    // "cursor",
-    // "terminal",
-    // "terminalfont",
-
-    // "battery",
-    // "poweradapter",
-    // "localip",
-    // "locale",
-    // "break",
-    // "colors"
+    }
   ]
 }

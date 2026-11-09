@@ -18,7 +18,7 @@ in
 
 {
   imports = [
-    inputs.areofyl-fetch.homeManagerModules.default
+    inputs.fetch.homeManagerModules.default
   ];
 
   # --- Home Manager ----------------------------------------------------------
@@ -105,8 +105,11 @@ in
   programs.bash = {
     enable = true;
     shellAliases = {
+      nrs = "sudo nixos-rebuild switch";
       nrf = "sudo nixos-rebuild switch --flake";
-      nr = "sudo nixos-rebuild switch";
+      nls = "nixos-rebuild list-generations";
+      ncg = "sudo nix-collect-garbage";
+      ff = "fastfetch";
       lg = "lazygit";
     };
   };

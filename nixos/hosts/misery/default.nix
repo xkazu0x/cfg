@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -78,6 +78,7 @@
     jq
 
     brave
+    inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
     spotify
     discord
     kdenlive
